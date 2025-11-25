@@ -30,27 +30,18 @@ const Hero = () => {
           {/* Right Upload Card */}
           <Card className="bg-white shadow-xl p-8 md:p-10 space-y-6">
             <div className="space-y-4">
-              <Button size="lg" className="w-full h-14 text-lg font-semibold bg-primary hover:bg-primary/90 text-white">
+              <Button size="lg" className="w-full h-14 text-lg font-semibold text-white bg-[#ee9432]">
                 <Upload className="w-5 h-5 mr-2" />
-                Dokument hochladen und prüfen
+                Fotoscan starten  
               </Button>
               <p className="text-sm text-muted-foreground text-center">
                 Foto oder PDF, ein Handyfoto reicht
               </p>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-border"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-muted-foreground font-semibold">ODER</span>
-              </div>
-            </div>
+            
 
-            <button className="w-full flex items-center justify-center gap-2 text-brand-blue hover:text-brand-blue/80 transition-colors font-semibold py-3">Ohne Schreiben? <FileText className="w-5 h-5" />
-              Schreiben nicht zur Hand? Beantworten Sie ein paar Fragen
-            </button>
+            
           </Card>
         </div>
       </div>
