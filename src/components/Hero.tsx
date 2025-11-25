@@ -7,9 +7,7 @@ const Hero = () => {
       <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
         {/* Left Content */}
         <div className="space-y-6">
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-brand-text leading-tight lg:text-4xl">
-            Mit Kündigungscheck in Minuten erfahren, ob sich ein Einspruch lohnt.
-          </h1>
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-brand-text leading-tight lg:text-4xl">Mit Kündigungscheck sofort erfahren, ob sich ein Einspruch lohnt.</h1>
           <p className="text-lg md:text-xl text-brand-text/80">
             Unsere KI erklärt Ihr Schreiben, prüft Fehler und Fristen und zeigt Ihre Möglichkeiten.
           </p>
