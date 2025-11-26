@@ -10,7 +10,7 @@ const Footer = () => {
                 Kündigungscheck
               </h3>
               <p className="text-white/80 text-sm">
-                Powered by Helpcheck
+                Powered by helpcheck
               </p>
             </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
 
           <div className="border-t border-white/20 pt-8 text-center">
             <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} Helpcheck. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} helpcheck. Alle Rechte vorbehalten.
             </p>
           </div>
         </div>
