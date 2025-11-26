@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     question: "Was kostet der Kündigungscheck?",
-    answer: "Die Ersteinschätzung durch unsere KI ist komplett kostenlos. Sie erhalten eine detaillierte Analyse Ihres Falles ohne jegliche Verpflichtung. Sollten Sie sich für eine Vertretung durch unsere Partner-Anwälte entscheiden, wird über Prozessfinanzierung oder Rechtsschutzversicherung abgerechnet."
+    answer: "Sie erhalten eine verständliche Zusammenfassung ihres Falls ohne jegliche Verpflichtung. Wenn Sie möchten versenden wir für Sie eine Antwort per Einschreiben. Falls sie mehr Rechtssicherheit möchten können sie einfach eine Einschätzung von unseren Anwälten anfordern."
   },
   {
     question: "Wie schnell bekomme ich ein Ergebnis?",
