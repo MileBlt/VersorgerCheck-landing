@@ -14,7 +14,7 @@ const Hero = () => {
 
           {/* Benefits List */}
           <ul className="space-y-4">
-            {["Alle arbeitsrechtlichen Schreiben: Kündigung, Abmahnung, Aufhebungsvertrag", "Versand einer Antwort und Hilfe von Anwalt", "Formale Prüfung & Fristencheck", "Ergebnis nach wenigen Sekunden – kostenlos"].map((benefit, index) => <li key={index} className="flex items-start gap-3">
+            {["Alle arbeitsrechtlichen Schreiben: Kündigung, Abmahnung, Aufhebungsvertrag", "Versand einer Antwort und Hilfe von Anwalt", "Ergebnis nach wenigen Sekunden – kostenlos"].map((benefit, index) => <li key={index} className="flex items-start gap-3">
               <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5">
                 <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
