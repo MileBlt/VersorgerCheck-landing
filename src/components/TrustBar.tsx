@@ -15,17 +15,16 @@ const TrustBar = () => {
 
         {/* Stats */}
         <div className="flex items-center gap-2">
-
           <span className="text-sm md:text-base text-brand-text">
             <span className="font-semibold">100.000+</span> geprüfte Fälle
           </span>
         </div>
 
-        {/* TÜV and Google Reviews */}
-        <TuevAndGoogle />
-
         {/* TÜV Badge */}
         <TrustBadge />
+
+        {/* TÜV and Google Reviews */}
+        <TuevAndGoogle />
       </div>
     </div>
   </section>;
