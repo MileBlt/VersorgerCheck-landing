@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Top Section: Logo, Socials, Newsletter */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <HelpcheckLogo className="brightness-0 invert" />
+              <HelpcheckLogo />
 
               <div className="flex gap-4">
                 <a href="#" className="hover:text-brand-orange transition-colors">
