@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import ValueProposition from "@/components/ValueProposition";
 import FAQ from "@/components/FAQ";
@@ -11,7 +10,6 @@ const Index = () => {
     <main className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
-      <TrustBar />
       <HowItWorks />
       <ValueProposition />
       <FAQ />
