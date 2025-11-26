@@ -28,7 +28,11 @@ const Hero = () => {
         {/* Right Upload Card */}
         <Card className="bg-white shadow-xl p-8 md:p-10 space-y-6">
           <div className="space-y-4">
-            <Button size="lg" className="w-full h-14 text-lg font-semibold text-white bg-brand-orange hover:bg-brand-orange/90 transition-colors">
+            <Button
+              size="lg"
+              className="w-full h-14 text-lg font-semibold text-white bg-brand-orange hover:bg-brand-orange/90 transition-colors"
+              style={{ backgroundColor: 'var(--brand-orange, #fe8f0b)' }}
+            >
               <Upload className="w-5 h-5 mr-2" />
               Fotoscan starten
             </Button>
