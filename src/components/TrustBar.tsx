@@ -1,4 +1,5 @@
 import { Star, Award, Users } from "lucide-react";
+import { TrustBadge } from "./TrustBadge";
 
 const TrustBar = () => {
   return (
@@ -32,13 +33,7 @@ const TrustBar = () => {
           </div>
 
           {/* TÜV Badge */}
-          <div className="flex items-center gap-2 px-4 py-2 bg-brand-light-bg rounded-lg">
-            <Award className="w-6 h-6 text-brand-blue" />
-            <div className="text-left">
-              <div className="text-xs font-semibold text-brand-text">Geprüftes</div>
-              <div className="text-xs text-brand-text/70">Onlineportal</div>
-            </div>
-          </div>
+          <TrustBadge />
         </div>
       </div>
     </section>
