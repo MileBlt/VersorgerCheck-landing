@@ -14,7 +14,7 @@ const Hero = () => {
             <div className="bg-card border border-border rounded-2xl p-5 md:p-7 lg:p-8 shadow-lg order-1 lg:order-2">
               <div className="space-y-6">
                 <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-4xl text-foreground leading-snug">
-                  Mit <span className="text-[hsl(var(--accent))]">Kündigungscheck</span> sofort erfahren, ob sich ein Einspruch lohnt.
+                  <span className="text-[hsl(var(--accent))]">Kündigungscheck</span> - Kündigung prüfen in Sekunden
                 </h1>
 
                 <p className="font-heading font-normal text-lg md:text-xl text-muted-foreground leading-relaxed">
