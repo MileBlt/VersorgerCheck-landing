@@ -36,7 +36,7 @@ const Hero = () => {
               Fotoscan starten
             </Button>
             <p className="text-sm text-muted-foreground text-center">
-              Foto oder PDF, ein Handyfoto reicht
+              Jetzt Foto oder Datei hochladen
             </p>
           </div>
         </Card>
