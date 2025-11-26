@@ -1,45 +1,30 @@
-import { Star, Award } from "lucide-react";
-import { TrustBadge } from "./TrustBadge";
+import { Award } from "lucide-react";
 import { TuevAndGoogle } from "./TuevAndGoogle";
 
 const TrustBar = () => {
   return (
-    <section className="bg-white border-y border-border py-8">
+    <section className="bg-white border-y border-border py-8 md:py-10">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-center md:text-left">
-          {/* Partnership */}
-          <div className="flex items-center gap-3">
-            <Award className="w-5 h-5 text-brand-green" />
+        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 md:gap-6 text-center lg:text-left">
+          <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-3 text-brand-text">
+            {/* Partnership */}
             <div className="flex items-center gap-2">
-              <span className="text-sm md:text-base text-brand-text">In Kooperation mit</span>
-              <span className="px-3 py-1 rounded-full border border-border text-sm font-semibold text-brand-text bg-white">
-                hwlegal
+              <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
+              <span className="text-xs md:text-sm leading-tight">
+                In Kooperation mit <span className="font-semibold">hwlegal</span>
               </span>
             </div>
-          </div>
 
-          {/* Rating */}
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-brand-orange text-brand-orange" />
-              ))}
+            {/* Stats */}
+            <div className="text-sm md:text-lg font-semibold whitespace-nowrap leading-tight">
+              100.000+ geprüfte Fälle
             </div>
-            <span className="text-sm md:text-base text-brand-text font-semibold">4,9 von 5 Sternen</span>
-          </div>
-
-          {/* Stats */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm md:text-base text-brand-text">
-              <span className="font-semibold">100.000+</span> geprüfte Fälle
-            </span>
           </div>
 
           {/* TÜV and Google Reviews */}
-          <TuevAndGoogle />
-
-          {/* TÜV Badge */}
-          <TrustBadge />
+          <div className="flex items-center justify-center lg:justify-end scale-75 md:scale-90">
+            <TuevAndGoogle />
+          </div>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ export const TuevAndGoogle = () => {
             <img
                 src="/TuvAndGoogleReview.png"
                 alt="TÜV and Google Reviews"
-                className="h-12 w-auto object-contain"
+                className="h-12 md:h-16 w-auto object-contain"
             />
         </div>
     );

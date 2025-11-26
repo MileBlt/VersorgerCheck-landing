@@ -30,10 +30,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="bg-brand-light-bg py-16 md:py-24">
+    <section className="bg-brand-light-bg py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text text-center mb-12">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text text-center mb-10">
             Häufig gestellte Fragen
           </h2>
 

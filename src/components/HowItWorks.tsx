@@ -20,9 +20,9 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="bg-secondary py-16 md:py-24">
+    <section className="bg-secondary py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-10 md:mb-14">
           So funktioniert's
         </h2>
         
