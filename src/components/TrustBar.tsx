@@ -1,4 +1,4 @@
-import { Star, Award } from "lucide-react";
+import { Award } from "lucide-react";
 import { TrustBadge } from "./TrustBadge";
 import { TuevAndGoogle } from "./TuevAndGoogle";
 const TrustBar = () => {
@@ -11,14 +11,6 @@ const TrustBar = () => {
           <span className="text-sm md:text-base text-brand-text">
             In Kooperation mit <span className="font-semibold">hwlegal</span>
           </span>
-        </div>
-
-        {/* Rating */}
-        <div className="flex items-center gap-2">
-          <div className="flex">
-            {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-brand-orange text-brand-orange" />)}
-          </div>
-          <span className="text-sm md:text-base text-brand-text font-semibold">4,9 von 5 Sternen</span>
         </div>
 
         {/* Stats */}
