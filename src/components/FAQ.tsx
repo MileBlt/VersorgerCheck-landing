@@ -8,7 +8,11 @@ import {
 const faqs = [
   {
     question: "Was kostet der Kündigungscheck?",
-    answer: "Sie erhalten eine verständliche Zusammenfassung ihres Falls ohne jegliche Verpflichtung. Wenn Sie möchten versenden wir für Sie eine Antwort per Einschreiben. Falls sie mehr Rechtssicherheit möchten können sie einfach eine Einschätzung von unseren Anwälten anfordern."
+    answer: "Sie erhalten eine verständliche und unverbindliche Zusammenfassung Ihres Falls. Auf Wunsch versenden wir für Sie eine Antwort per Einschreiben. Wenn Sie mehr Rechtssicherheit wünschen, können Sie ganz einfach eine Einschätzung durch unsere Anwälte anfordern."
+  },
+  {
+    question: "Wie versendet ihr Post für mich?",
+    answer: "Gern versenden wir Ihr Schreiben per Einschreiben. Für diesen Service berechnen wir 7,99 €. Das Einschreiben wird spätestens bis 12 Uhr des folgenden Werktags aufgegeben, die Sendungsverfolgungsnummer erhalten Sie im Anschluss per E-Mail."
   },
   {
     question: "Wie schnell bekomme ich ein Ergebnis?",
@@ -32,15 +36,15 @@ const FAQ = () => {
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text text-center mb-12">
             Häufig gestellte Fragen
           </h2>
-          
+
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
+              <AccordionItem
+                key={index}
                 value={`item-${index}`}
                 className="bg-white rounded-lg px-6 border border-border"
               >
-                <AccordionTrigger className="text-left font-heading font-semibold text-brand-text hover:text-primary">
+                <AccordionTrigger className="text-left font-heading font-semibold text-brand-text hover:text-primary hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-brand-text/80 leading-relaxed">
