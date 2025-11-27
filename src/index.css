@@ -117,3 +117,10 @@ All colors MUST be HSL.
     font-weight: 700;
   }
 }
+
+/* Hide Lovable badge (if injected by hosting) */
+#lovable-badge,
+#lovable-badge * {
+  display: none !important;
+  visibility: hidden !important;
+}
