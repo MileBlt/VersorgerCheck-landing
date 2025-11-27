@@ -29,9 +29,11 @@ const SummaryCard = ({
         <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.08em]">
           {overline}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h2 className="font-heading text-2xl font-semibold text-brand-text">{summaryTitle}</h2>
-          <p className="text-brand-text/90 leading-relaxed">{summaryText}</p>
+          <div className="rounded-xl border border-accent/30 bg-accent/5 p-4">
+            <p className="text-brand-text/90 leading-relaxed">{summaryText}</p>
+          </div>
         </div>
       </header>
 
