@@ -5,19 +5,14 @@ const MobileCTA = () => {
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
-    const target = document.getElementById("upload-button");
-    if (!target) return;
+    const onScroll = () => {
+      const threshold = window.innerHeight / 3;
+      setShowSticky(window.scrollY > threshold);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setShowSticky(!entry.isIntersecting);
-      },
-      { threshold: 0.01 },
-    );
-
-    observer.observe(target);
-    return () => observer.disconnect();
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
