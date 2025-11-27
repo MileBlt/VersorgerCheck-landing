@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Was passiert nach der Prüfung?",
-    answer: "Sie bekommen eine leicht verständliche Einschätzung und ein fertiges Schreiben für Rückzahlungen. Sie entscheiden, ob Sie selbst verschicken oder anwaltliche Hilfe möchten."
+    answer: "Sie bekommen eine leicht verständliche Einschätzung und ein fertiges Schreiben für Rückzahlungen. Sie entscheiden, ob Sie selbst verschicken oder unsere professionelle anwaltliche Expertenhilfe möchten. Dabei gehen Sie nicht leer aus: Entweder wurde richtig abgerechnet oder wir setzen uns für Ihre Rückzahlung ein – einfach und fair."
   }
 ];
 
