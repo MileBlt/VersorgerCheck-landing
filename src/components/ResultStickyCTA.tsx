@@ -22,7 +22,7 @@ const ResultStickyCTA = () => {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 md:hidden bg-white/85 backdrop-blur border-t border-border shadow-[0_-4px_12px_rgba(0,0,0,0.05)] transition-transform duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-50 bg-white/85 backdrop-blur border-t border-border shadow-[0_-4px_12px_rgba(0,0,0,0.05)] transition-transform duration-300 ${
         showSticky ? "translate-y-0" : "translate-y-full pointer-events-none"
       }`}
       aria-hidden={!showSticky}
