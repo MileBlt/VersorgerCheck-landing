@@ -14,7 +14,7 @@ const Hero = () => {
             <div className="bg-card border border-border rounded-2xl p-5 md:p-7 lg:p-8 shadow-lg order-1 lg:order-2">
               <div className="space-y-6">
                 <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-4xl text-foreground leading-snug">
-                  <span className="text-[hsl(var(--accent))]">Stromkosten-Check</span> – prüfen, ob Ihr Anbieter zu viel kassiert hat.
+                  <span className="text-[hsl(var(--accent))]">Stromkosten-Check</span> – wurde zu viel berechnet?
                 </h1>
 
                 <p className="font-heading font-normal text-lg md:text-xl text-muted-foreground leading-relaxed">
