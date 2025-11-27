@@ -31,7 +31,7 @@ const values = [
   {
     icon: Scale,
     title: "Wir prüfen Ihre Entlastungen",
-    description: "Wir checken, ob Ihr Anbieter beide Regeln eingehalten hat. Wenn nicht, zeigen wir Ihnen, wie Sie Geld zurückfordern."
+    description: "Wir checken, ob Ihr Anbieter beide Regeln eingehalten hat. Wenn nicht, fordern wir für Sie das zu viel bezahlte Geld zurück."
   }
 ];
 
