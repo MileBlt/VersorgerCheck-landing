@@ -37,7 +37,7 @@ const ResultStickyCTA = () => {
           size="sm"
           className="h-11 px-4 text-sm font-semibold"
         >
-          <Link to="/beauftragen" aria-label="Zum CTA springen">Jetzt aktiv werden</Link>
+          <Link to="/beauftragen" aria-label="Zum CTA springen">Jetzt prüfen</Link>
         </Button>
       </div>
     </div>

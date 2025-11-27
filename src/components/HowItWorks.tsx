@@ -24,13 +24,13 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="bg-secondary py-12 md:py-16">
+    <section className="bg-secondary py-7 md:py-10">
       <div className="container mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-10 md:mb-14">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-7 md:mb-9">
           So funktioniert's
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (

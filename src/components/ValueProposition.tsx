@@ -37,16 +37,16 @@ const values = [
 
 const ValueProposition = () => {
   return (
-    <section className="bg-white py-12 md:py-16">
+    <section className="bg-white py-7 md:py-10">
       <div className="container mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text text-center mb-4">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-text text-center mb-3">
           Warum lohnt sich der Stromkosten-Check?
         </h2>
-        <p className="text-lg text-brand-text/70 text-center mb-10 md:mb-12 max-w-3xl mx-auto">
+        <p className="text-lg text-brand-text/70 text-center mb-7 md:mb-9 max-w-3xl mx-auto">
           Klar und verständlich: So behalten Sie den Überblick über <strong className="font-semibold">EEG-Umlage</strong> und <strong className="font-semibold">Strompreisbremse</strong> und sehen, ob Geld zurück auf Ihr Konto gehört.
         </p>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-9 max-w-6xl mx-auto">
           {values.map((value, index) => {
             const Icon = value.icon;
             return (

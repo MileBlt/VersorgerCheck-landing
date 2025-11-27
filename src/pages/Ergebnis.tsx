@@ -32,7 +32,7 @@ const Ergebnis = () => {
               summaryText={summaryText}
               recommendations={recommendations}
               footerNote="Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten."
-              ctaLabel="Jetzt aktiv werden"
+              ctaLabel="Jetzt Stromrechnung prüfen"
               ctaHref="/beauftragen"
             />
           </div>

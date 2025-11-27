@@ -1,4 +1,5 @@
 import { Award, Upload } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TuevAndGoogle } from "./TuevAndGoogle";
@@ -49,12 +50,15 @@ const Hero = () => {
             >
               <div className="space-y-4">
                 <Button
+                  asChild
                   id="upload-button"
                   size="lg"
                   className="w-full h-14 text-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md"
                 >
-                  <Upload className="w-5 h-5 mr-2" />
-                  Stromrechnung prüfen
+                  <Link to="/ergebnis">
+                    <Upload className="w-5 h-5 mr-2" />
+                    Stromrechnung prüfen
+                  </Link>
                 </Button>
                 <p className="text-sm text-muted-foreground text-center font-sans">
                   Jetzt Foto oder PDF Ihrer Rechnung hochladen!
@@ -70,7 +74,7 @@ const Hero = () => {
                   <div className="flex items-center gap-2">
                     <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
                     <span className="text-xs md:text-sm leading-tight">
-                      In Kooperation mit <span className="font-semibold">hwlegal</span>
+                      In Kooperation mit <span className="font-semibold">führenden Anwaltskanzleien</span>
                     </span>
                   </div>
                   <div className="text-sm md:text-base font-semibold whitespace-nowrap leading-tight">
