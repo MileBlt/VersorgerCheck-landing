@@ -5,7 +5,7 @@ const TrustBar = () => {
   return (
     <section className="bg-white border-y border-border py-8 md:py-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-4 md:gap-5">
+        <div className="max-w-4xl mx-auto bg-card border border-border rounded-2xl shadow-lg p-6 md:p-7 flex flex-col items-center text-center gap-4 md:gap-5">
           <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:gap-4 text-brand-text">
             {/* Partnership */}
             <div className="flex items-center gap-2">
