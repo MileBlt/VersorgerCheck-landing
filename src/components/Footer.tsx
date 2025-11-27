@@ -6,7 +6,7 @@ import { HelpcheckLogo } from "./HelpcheckLogo";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#25252f] py-16 text-white">
+    <footer className="bg-[#25252f] py-10 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
 
