@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import ResultStickyCTA from "@/components/ResultStickyCTA";
 
 const Ergebnis = () => {
   return (
@@ -45,7 +46,7 @@ const Ergebnis = () => {
                 <div className="text-sm text-brand-text/70">
                   Bereit loszulegen? Wählen Sie eines der Angebote auf der nächsten Seite.
                 </div>
-                <Button asChild size="lg" className="w-full sm:w-auto">
+                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
                   <Link to="/beauftragen">Jetzt aktiv werden</Link>
                 </Button>
               </div>
@@ -55,6 +56,7 @@ const Ergebnis = () => {
       </section>
 
       <Footer />
+      <ResultStickyCTA />
     </main>
   );
 };
