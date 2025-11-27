@@ -53,6 +53,7 @@ const Hero = () => {
             >
               <div className="space-y-4">
                 <Button
+                  id="upload-button"
                   size="lg"
                   className="w-full h-14 text-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md"
                 >
