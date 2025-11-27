@@ -30,8 +30,7 @@ const ResultStickyCTA = () => {
     >
       <div className="container mx-auto px-4 py-3 flex items-center gap-3">
         <div className="flex-1">
-          <div className="text-sm font-semibold text-brand-text">Jetzt aktiv werden</div>
-          <div className="text-xs text-brand-text/70">Handlungsempfehlungen umsetzen</div>
+          <div className="text-sm font-semibold text-brand-text">Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten.</div>
         </div>
         <Button
           asChild

@@ -24,9 +24,6 @@ const Ergebnis = () => {
               <h1 className="font-heading text-3xl md:text-4xl font-bold text-brand-text leading-tight">
                 Ihre Zusammenfassung und nächste Schritte
               </h1>
-              <p className="text-base text-brand-text/70">
-                Kurzer Überblick mit klaren Handlungsempfehlungen. Sehen Sie sofort, was festgestellt wurde und was Sie tun können.
-              </p>
             </div>
 
             <SummaryCard
