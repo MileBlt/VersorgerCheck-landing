@@ -3,9 +3,9 @@ import { TuevAndGoogle } from "./TuevAndGoogle";
 
 const TrustBar = () => {
   return (
-    <section className="bg-white border-y border-border py-8 md:py-10">
+    <section className="bg-muted py-8 md:py-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto bg-card border border-border rounded-2xl shadow-lg p-6 md:p-7 flex flex-col items-center text-center gap-4 md:gap-5">
+        <div className="max-w-4xl mx-auto bg-card border border-border/70 rounded-2xl shadow-[0_18px_40px_rgba(0,0,0,0.08)] p-6 md:p-7 flex flex-col items-center text-center gap-4 md:gap-5">
           <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:gap-4 text-brand-text">
             {/* Partnership */}
             <div className="flex items-center gap-2">
