@@ -22,27 +22,24 @@ const Hero = () => {
                 </p>
 
                 {/* Benefits List with Accent Line */}
-                <div className="relative pl-4">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[hsl(var(--accent))] rounded-full" />
-                  <ul className="space-y-3">
-                    {[
-                      "Prüfung von Stromrechnungen ab 2022",
-                      <>Kontrolle von <strong className="font-semibold">EEG-Umlage</strong> und <strong className="font-semibold">Strompreisbremse</strong></>,
-                      "Ergebnis in wenigen Sekunden – kostenlos",
-                    ].map((benefit, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--accent))] flex items-center justify-center mt-0.5">
-                          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span className="font-heading font-light text-foreground text-base md:text-lg leading-relaxed">
-                          {benefit}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Prüfung von Stromrechnungen ab 2022",
+                    <>Kontrolle von <strong className="font-semibold">EEG-Umlage</strong> und <strong className="font-semibold">Strompreisbremse</strong></>,
+                    "Ergebnis in wenigen Sekunden – kostenlos",
+                  ].map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--accent))] flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="font-heading font-light text-foreground text-base md:text-lg leading-relaxed">
+                        {benefit}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
