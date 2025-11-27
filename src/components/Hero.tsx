@@ -22,7 +22,9 @@ const Hero = () => {
                   {[
                     "Prüfung von Stromrechnungen ab 2022",
                     <>Kontrolle von <strong className="font-semibold">EEG-Umlage</strong> und <strong className="font-semibold">Strompreisbremse</strong></>,
-                    "Kostenloses Ergebnis in wenigen Sekunden",
+                    <>
+                      <strong className="font-semibold">Kostenloses</strong> Ergebnis in wenigen Sekunden
+                    </>,
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--brand-blue))] flex items-center justify-center mt-0.5">
