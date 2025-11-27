@@ -52,36 +52,6 @@ const Ergebnis = () => {
                 </ul>
               </div>
 
-              <div className="space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-brand-text">Rechtsgrundlagen</h3>
-                <ul className="space-y-2 text-brand-text/85 leading-relaxed list-disc pl-5">
-                  <li>
-                    Gesetz zur Absenkung der Kostenbelastungen durch die EEG-Umlage (BGBl. I 2022 S. 747) – Absenkung auf 0 ct/kWh ab 1.7.2022 und Weitergabe an Letztverbraucher vorgeschrieben.
-                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">Dejure</span>
-                  </li>
-                  <li>
-                    BMWK-Mitteilung: EEG-Umlage entfällt ab 1.7.2022 vollständig.
-                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">BMWi</span>
-                  </li>
-                  <li>
-                    Bundesnetzagentur/Netztransparenz: EEG-Umlage 2022 = 3,723 ct/kWh (nur 1.1.–30.6.2022); ab 1.7.2022 = 0 ct/kWh; ab 1.1.2023 dauerhaft 0 (EEG 2023).
-                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">Netztransparenz</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-brand-text">Konkreter Fehler auf der Rechnung</h3>
-                <div className="rounded-lg border border-border/60 bg-muted/60 p-4 space-y-2">
-                  <p className="text-brand-text/90 leading-relaxed">
-                    Der Versorger hat für Liefermonate ab Juli 2022 eine Zeile „EEG-Umlage“ (z. B. 3,723 ct/kWh) ausgewiesen.
-                  </p>
-                  <p className="text-brand-text/85 leading-relaxed">
-                    Dadurch wurden zu hohe Gesamtkosten berechnet, denn die Umlage war zu diesem Zeitpunkt nicht mehr zulässig.
-                  </p>
-                </div>
-              </div>
-
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
                 <div className="text-sm text-brand-text/70">
                   Bereit loszulegen? Wählen Sie eines der Angebote auf der nächsten Seite.
