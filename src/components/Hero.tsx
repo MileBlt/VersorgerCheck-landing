@@ -25,6 +25,7 @@ const Hero = () => {
                     <>
                       <strong className="font-semibold">Kostenloses</strong> Ergebnis in wenigen Sekunden
                     </>,
+                    "Zu viel bezahltes Geld zurückerhalten – ohne Kostenrisiko",
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--brand-blue))] flex items-center justify-center mt-0.5">
