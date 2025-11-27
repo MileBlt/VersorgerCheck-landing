@@ -14,11 +14,11 @@ const Hero = () => {
             <div className="bg-card border border-border rounded-2xl p-5 md:p-7 lg:p-8 shadow-lg order-1 lg:order-2">
               <div className="space-y-6">
                 <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-4xl text-foreground leading-snug">
-                  <span className="text-[hsl(var(--accent))]">Kündigungscheck</span> - Kündigung prüfen in Sekunden
+                  <span className="text-[hsl(var(--accent))]">Stromkosten-Check</span> – prüfen, ob Ihr Anbieter zu viel kassiert hat.
                 </h1>
 
                 <p className="font-heading font-normal text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  Unsere KI erklärt Ihr Schreiben, prüft Fehler und Fristen und zeigt Ihre Möglichkeiten.
+                  Wir prüfen Ihre Stromrechnungen auf verpasste Entlastungen wie <strong className="font-semibold">Wegfall der EEG-Umlage</strong> und die <strong className="font-semibold">Strompreisbremse</strong>. So sehen Sie, ob Sie Geld zurückbekommen können.
                 </p>
 
                 {/* Benefits List with Accent Line */}
@@ -26,9 +26,9 @@ const Hero = () => {
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-[hsl(var(--accent))] rounded-full" />
                   <ul className="space-y-3">
                     {[
-                      "Alle arbeitsrechtlichen Schreiben: Kündigung, Abmahnung, Aufhebungsvertrag",
-                      "Versand einer Antwort und Hilfe von Anwalt",
-                      "Ergebnis nach wenigen Sekunden – kostenlos",
+                      "Prüfung von Stromrechnungen ab 2022",
+                      <>Kontrolle von <strong className="font-semibold">EEG-Umlage</strong> und <strong className="font-semibold">Strompreisbremse</strong></>,
+                      "Ergebnis in wenigen Sekunden – kostenlos",
                     ].map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--accent))] flex items-center justify-center mt-0.5">
@@ -54,10 +54,10 @@ const Hero = () => {
                   className="w-full h-14 text-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md"
                 >
                   <Upload className="w-5 h-5 mr-2" />
-                  Fotoscan starten
+                  Stromrechnung prüfen
                 </Button>
                 <p className="text-sm text-muted-foreground text-center font-sans">
-                  Jetzt Foto oder Datei hochladen!
+                  Jetzt Foto oder PDF Ihrer Rechnung hochladen!
                 </p>
               </div>
             </Card>
@@ -70,11 +70,11 @@ const Hero = () => {
                 <div className="flex items-center gap-1.5">
                   <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
                   <span className="text-xs md:text-sm leading-tight">
-                    In Kooperation mit <span className="font-semibold">hwlegal</span>
+                    In Kooperation mit <span className="font-semibold">hwlegal</span> – verbraucherfreundliche Durchsetzung
                   </span>
                 </div>
                 <div className="text-sm md:text-base font-semibold whitespace-nowrap leading-tight">
-                  100.000+ geprüfte Fälle
+                  Tausende geprüfte Stromrechnungen
                 </div>
               </div>
 

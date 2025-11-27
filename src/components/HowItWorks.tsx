@@ -3,18 +3,22 @@ import { Upload, Sparkles, CheckCircle } from "lucide-react";
 const steps = [
   {
     icon: Upload,
-    title: "Dokument hochladen",
-    description: "Kündigung, Abmahnung oder Aufhebungsvertrag als Foto/PDF hochladen oder Fragen beantworten."
+    title: "Stromrechnung hochladen",
+    description: "Laden Sie eine aktuelle Stromrechnung als Foto oder PDF hoch. Ein Handyfoto reicht."
   },
   {
     icon: Sparkles,
-    title: "KI-Analyse",
-    description: "Unsere KI prüft sofort auf Formfehler, Fristen und Sozialauswahl."
+    title: "KI prüft Entlastungen",
+    description: (
+      <>
+        Unsere KI prüft, ob der <strong className="font-semibold">Wegfall der EEG-Umlage</strong> ab Mitte 2022 richtig weitergegeben wurde und ob die <strong className="font-semibold">Strompreisbremse</strong> ab 2023 stimmt. Sie sehen, ob Ihre Rechnung zu hoch ist.
+      </>
+    )
   },
   {
     icon: CheckCircle,
-    title: "Ergebnis & Option",
-    description: "Sie erhalten sofort eine kostenlose Ersteinschätzung und Handlungsoptionen."
+    title: "Ergebnis und Rückforderung",
+    description: "Sie erhalten eine leicht verständliche Einschätzung und ein fertiges Schreiben, mit dem Sie Rückzahlungen bei Ihrem Anbieter verlangen können. Auf Wunsch hilft Ihnen ein spezialisierter Anwalt."
   }
 ];
 

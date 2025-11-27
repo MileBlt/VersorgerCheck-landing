@@ -7,24 +7,28 @@ import {
 
 const faqs = [
   {
-    question: "Was kostet der Kündigungscheck?",
-    answer: "Sie erhalten eine verständliche und unverbindliche Zusammenfassung Ihres Falls. Auf Wunsch versenden wir für Sie eine Antwort per Einschreiben. Wenn Sie mehr Rechtssicherheit wünschen, können Sie ganz einfach eine Einschätzung durch unsere Anwälte anfordern."
+    question: "Für welche Zeiträume kann ich Geld zurückbekommen?",
+    answer: (
+      <>
+        Wir prüfen Rechnungen ab 2022. Ab Juli 2022 musste die <strong className="font-semibold">EEG-Umlage</strong> auf null gesetzt werden, ab 2023 gilt die <strong className="font-semibold">Strompreisbremse</strong> rückwirkend. In diesen Zeiträumen finden wir häufig zu hohe Preise.
+      </>
+    )
   },
   {
-    question: "Wie versendet ihr Post für mich?",
-    answer: "Gern versenden wir Ihr Schreiben per Einschreiben. Für diesen Service berechnen wir 7,99 €. Das Einschreiben wird spätestens bis 12 Uhr des folgenden Werktags aufgegeben, die Sendungsverfolgungsnummer erhalten Sie im Anschluss per E-Mail."
+    question: "Brauche ich alle alten Rechnungen?",
+    answer: "Ein aktuelles Schreiben reicht für den Start. Wenn wir mehr Belege brauchen, sagen wir Ihnen genau, was fehlt – meist genügt die letzte Jahres- oder Abschlagsrechnung."
   },
   {
     question: "Wie schnell bekomme ich ein Ergebnis?",
-    answer: "Die KI-Analyse erfolgt in Echtzeit und dauert nur wenige Sekunden. Direkt nach dem Upload Ihres Dokuments erhalten Sie eine verständliche Ersteinschätzung mit allen wichtigen Informationen zu Formfehlern, Fristen und Handlungsoptionen."
+    answer: "Die KI-Auswertung dauert nur wenige Sekunden. Direkt nach dem Upload sehen Sie, ob Ihr Anbieter Entlastungen übersehen hat."
   },
   {
-    question: "Was passiert, wenn ich eine Rechtsschutzversicherung habe?",
-    answer: "Perfekt! Falls Sie eine Rechtsschutzversicherung haben, übernimmt diese in der Regel die Kosten für die anwaltliche Vertretung. Wir unterstützen Sie bei der Abwicklung und kümmern uns um die Kommunikation mit Ihrer Versicherung."
+    question: "Was kostet der Stromkosten-Check?",
+    answer: "Die Prüfung ist kostenlos. Wenn Sie ein Schreiben an den Anbieter verschicken möchten, sehen Sie die Kosten vorher transparent. Bei Bedarf helfen spezialisierte Anwälte – mit Kostenhinweis, bevor etwas beauftragt wird."
   },
   {
-    question: "Wie läuft die Zusammenarbeit mit den Anwälten ab?",
-    answer: "Nach der kostenlosen KI-Ersteinschätzung können Sie optional die Unterstützung unserer Partner-Kanzlei hwlegal in Anspruch nehmen. Die spezialisierten Fachanwälte für Arbeitsrecht prüfen Ihren Fall persönlich und vertreten Sie bei Bedarf vor Gericht."
+    question: "Was passiert nach der Prüfung?",
+    answer: "Sie bekommen eine leicht verständliche Einschätzung und ein fertiges Schreiben für Rückzahlungen. Sie entscheiden, ob Sie selbst verschicken oder anwaltliche Hilfe möchten."
   }
 ];
 
