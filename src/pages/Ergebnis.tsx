@@ -6,7 +6,7 @@ import SummaryCard from "@/components/SummaryCard";
 
 const Ergebnis = () => {
   const summaryText =
-    "Auf Ihrer Rechnung steht ab Juli 2022 noch eine EEG-Umlage. Das ist nicht erlaubt, denn seit 1.7.2022 liegt sie bei 0 ct/kWh und wurde abgeschafft.";
+    "Auf Ihrer Rechnung steht ab Juli 2022 noch eine EEG-Umlage. Das ist nicht erlaubt, denn seit 1.7.2022 liegt sie bei 0 ct/kWh und wurde abgeschafft. Die Entlastung wurde offenbar nicht weitergegeben – deshalb kann eine Rückzahlung fällig sein.";
 
   const recommendations = [
     "Fordern Sie von Ihrem Anbieter eine korrigierte Rechnung.",
