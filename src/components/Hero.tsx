@@ -14,7 +14,7 @@ const Hero = () => {
             <div className="bg-card border border-border rounded-2xl p-5 md:p-7 lg:p-8 shadow-lg order-1 lg:order-2">
               <div className="space-y-6">
                 <h1 className="font-heading font-bold text-3xl md:text-4xl lg:text-4xl text-foreground leading-snug">
-                  <span className="text-[hsl(var(--accent))]">Stromkosten-Check</span> – wurde zu viel berechnet?
+                  <span className="text-[hsl(var(--brand-blue))]">Stromkosten-Check</span> – wurde zu viel berechnet?
                 </h1>
 
                 {/* Benefits List with Accent Line */}
@@ -25,7 +25,7 @@ const Hero = () => {
                     <>Ergebnis in wenigen Sekunden – <strong className="font-semibold">kostenlos</strong></>,
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--accent))] flex items-center justify-center mt-0.5">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[hsl(var(--brand-blue))] flex items-center justify-center mt-0.5">
                         <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
