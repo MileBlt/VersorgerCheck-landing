@@ -5,7 +5,7 @@ import { TuevAndGoogle } from "./TuevAndGoogle";
 
 const Hero = () => {
   return (
-    <section className="bg-muted py-8 md:py-12 lg:py-16">
+    <section className="bg-muted pt-5 md:pt-8 lg:pt-10 pb-8 md:pb-12 lg:pb-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col gap-6 md:gap-8 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start lg:items-center">
