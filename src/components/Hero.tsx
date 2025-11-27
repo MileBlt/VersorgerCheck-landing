@@ -47,7 +47,10 @@ const Hero = () => {
             </div>
 
             {/* Right Upload Card */}
-            <Card className="bg-card shadow-xl p-6 md:p-7 lg:p-8 space-y-5 border border-border/70 order-2 lg:order-1 lg:self-center">
+            <Card
+              id="upload-card"
+              className="bg-card shadow-xl p-6 md:p-7 lg:p-8 space-y-5 border border-border/70 order-2 lg:order-1 lg:self-center"
+            >
               <div className="space-y-4">
                 <Button
                   size="lg"
