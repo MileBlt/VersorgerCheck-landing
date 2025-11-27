@@ -63,20 +63,20 @@ const Hero = () => {
             </Card>
           </div>
 
-          {/* Trust Row */}
-          <div className="bg-card border border-border rounded-2xl px-6 py-6 md:px-8 md:py-8 shadow-sm">
-            <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-4">
-              <div className="flex flex-row flex-wrap items-center justify-center gap-2 text-brand-text">
-                <div className="flex items-center gap-1.5">
-                  <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
-                  <span className="text-xs md:text-sm leading-tight">
-                    In Kooperation mit <span className="font-semibold">hwlegal</span> – verbraucherfreundliche Durchsetzung
-                  </span>
+            {/* Trust Row */}
+            <div className="bg-card border border-border rounded-2xl px-6 py-6 md:px-8 md:py-8 shadow-sm">
+              <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-4">
+                <div className="flex flex-row flex-wrap items-center justify-center gap-2 text-brand-text">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
+                    <span className="text-xs md:text-sm leading-tight">
+                      In Kooperation mit <span className="font-semibold">hwlegal</span>
+                    </span>
+                  </div>
+                  <div className="text-sm md:text-base font-semibold whitespace-nowrap leading-tight">
+                    100.000+ geprüfte Fälle
+                  </div>
                 </div>
-                <div className="text-sm md:text-base font-semibold whitespace-nowrap leading-tight">
-                  Tausende geprüfte Stromrechnungen
-                </div>
-              </div>
 
               <div className="flex items-center justify-center scale-75 md:scale-90">
                 <TuevAndGoogle />

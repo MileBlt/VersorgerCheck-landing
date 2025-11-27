@@ -11,13 +11,13 @@ const TrustBar = () => {
             <div className="flex items-center gap-2">
               <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
               <span className="text-xs md:text-sm leading-tight">
-                In Kooperation mit <span className="font-semibold">hwlegal</span> – verbraucherfreundliche Durchsetzung
+                In Kooperation mit <span className="font-semibold">hwlegal</span>
               </span>
             </div>
 
             {/* Stats */}
             <div className="text-sm md:text-lg font-semibold whitespace-nowrap leading-tight">
-              Tausende geprüfte Stromrechnungen
+              100.000+ geprüfte Fälle
             </div>
           </div>
 
