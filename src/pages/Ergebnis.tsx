@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
 import SummaryCard from "@/components/SummaryCard";
+import TrustBar from "@/components/TrustBar";
 
 const Ergebnis = () => {
   const summaryText =
@@ -38,6 +39,7 @@ const Ergebnis = () => {
         </div>
       </section>
 
+      <TrustBar />
       <Footer />
       <ResultStickyCTA />
     </main>
