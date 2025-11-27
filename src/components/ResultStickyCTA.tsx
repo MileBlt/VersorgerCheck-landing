@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ResultStickyCTA = () => {
@@ -37,7 +38,7 @@ const ResultStickyCTA = () => {
           size="sm"
           className="h-11 px-4 text-sm font-semibold"
         >
-          <a href="#ergebnis-cta" aria-label="Zum CTA springen">Weiter</a>
+          <Link to="/beauftragen" aria-label="Zum CTA springen">Jetzt aktiv werden</Link>
         </Button>
       </div>
     </div>
