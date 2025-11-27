@@ -25,10 +25,21 @@ const Ergebnis = () => {
 
             <Card className="p-6 md:p-8 space-y-6 bg-card shadow-sm border border-border/60">
               <div className="space-y-3">
-                <h2 className="font-heading text-2xl font-semibold text-brand-text">Zusammenfassung</h2>
-                <p className="text-brand-text/85 leading-relaxed">
-                  Freitext-Platzhalter: Hier steht die individuelle Zusammenfassung Ihres Schreibens mit allen wichtigen Punkten.
-                </p>
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wide">
+                    Zusammenfassung der Prüfung
+                  </div>
+                  <div className="h-px flex-1 bg-border" />
+                </div>
+                <div className="rounded-xl border border-accent/30 bg-accent/5 p-4 space-y-2">
+                  <p className="text-brand-text font-semibold">Befund</p>
+                  <p className="text-brand-text/90 leading-relaxed">
+                    Auf der Rechnung wurde für Zeiträume ab 1. Juli 2022 weiterhin eine EEG-Umlage angesetzt.
+                    Das ist unzulässig, denn die Umlage wurde ab 1.7.2022 gesetzlich auf 0 ct/kWh gesenkt
+                    und ab 1.1.2023 endgültig abgeschafft.
+                  </p>
+                  <div className="text-xs text-brand-text/60">Quelle: Bundesnetzagentur</div>
+                </div>
               </div>
 
               <div className="h-2" />
@@ -40,6 +51,36 @@ const Ergebnis = () => {
                   <li>Platzhalter-Empfehlung 2: Nächster sinnvoller Schritt, z. B. Anbieter kontaktieren.</li>
                   <li>Platzhalter-Empfehlung 3: Hinweis auf mögliche Rückforderung oder weitere Prüfung.</li>
                 </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-heading text-xl font-semibold text-brand-text">Rechtsgrundlagen</h3>
+                <ul className="space-y-2 text-brand-text/85 leading-relaxed list-disc pl-5">
+                  <li>
+                    Gesetz zur Absenkung der Kostenbelastungen durch die EEG-Umlage (BGBl. I 2022 S. 747) – Absenkung auf 0 ct/kWh ab 1.7.2022 und Weitergabe an Letztverbraucher vorgeschrieben.
+                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">Dejure</span>
+                  </li>
+                  <li>
+                    BMWK-Mitteilung: EEG-Umlage entfällt ab 1.7.2022 vollständig.
+                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">BMWi</span>
+                  </li>
+                  <li>
+                    Bundesnetzagentur/Netztransparenz: EEG-Umlage 2022 = 3,723 ct/kWh (nur 1.1.–30.6.2022); ab 1.7.2022 = 0 ct/kWh; ab 1.1.2023 dauerhaft 0 (EEG 2023).
+                    <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-xs font-semibold text-brand-text/80">Netztransparenz</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-heading text-xl font-semibold text-brand-text">Konkreter Fehler auf der Rechnung</h3>
+                <div className="rounded-lg border border-border/60 bg-muted/60 p-4 space-y-2">
+                  <p className="text-brand-text/90 leading-relaxed">
+                    Der Versorger hat für Liefermonate ab Juli 2022 eine Zeile „EEG-Umlage“ (z. B. 3,723 ct/kWh) ausgewiesen.
+                  </p>
+                  <p className="text-brand-text/85 leading-relaxed">
+                    Dadurch wurden zu hohe Gesamtkosten berechnet, denn die Umlage war zu diesem Zeitpunkt nicht mehr zulässig.
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
