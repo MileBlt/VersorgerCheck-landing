@@ -38,7 +38,6 @@ const Ergebnis = () => {
                     Das ist unzulässig, denn die Umlage wurde ab 1.7.2022 gesetzlich auf 0 ct/kWh gesenkt
                     und ab 1.1.2023 endgültig abgeschafft.
                   </p>
-                  <div className="text-xs text-brand-text/60">Quelle: Bundesnetzagentur</div>
                 </div>
               </div>
 
