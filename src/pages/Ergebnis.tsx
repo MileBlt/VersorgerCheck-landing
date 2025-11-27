@@ -33,7 +33,7 @@ const Ergebnis = () => {
               summaryTitle="Befund"
               summaryText={summaryText}
               recommendations={recommendations}
-              footerNote="Bereit loszulegen? Wählen Sie jetzt Ihren nächsten Schritt."
+              footerNote="Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten."
               ctaLabel="Jetzt aktiv werden"
               ctaHref="/beauftragen"
             />

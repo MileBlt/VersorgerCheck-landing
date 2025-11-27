@@ -19,7 +19,7 @@ const SummaryCard = ({
   summaryText,
   recommendationsTitle = "Handlungsempfehlungen",
   recommendations,
-  footerNote = "Bereit loszulegen? Wählen Sie jetzt Ihren nächsten Schritt.",
+  footerNote = "Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten.",
   ctaLabel,
   ctaHref,
 }: SummaryCardProps) => {
