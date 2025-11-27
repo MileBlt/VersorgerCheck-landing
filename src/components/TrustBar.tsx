@@ -5,8 +5,8 @@ const TrustBar = () => {
   return (
     <section className="bg-white border-y border-border py-8 md:py-10">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 md:gap-6 text-center lg:text-left">
-          <div className="flex flex-row flex-wrap items-center justify-center lg:justify-start gap-2 md:gap-3 text-brand-text">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-4 md:gap-5">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-3 md:gap-4 text-brand-text">
             {/* Partnership */}
             <div className="flex items-center gap-2">
               <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
@@ -22,7 +22,7 @@ const TrustBar = () => {
           </div>
 
           {/* TÜV and Google Reviews */}
-          <div className="flex items-center justify-center lg:justify-end scale-75 md:scale-90">
+          <div className="flex items-center justify-center scale-75 md:scale-90">
             <TuevAndGoogle />
           </div>
         </div>
