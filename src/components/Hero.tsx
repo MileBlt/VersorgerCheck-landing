@@ -18,7 +18,7 @@ const Hero = () => {
                 </h1>
 
                 <p className="font-heading font-normal text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  Wir prüfen auf verpasste Entlastungen wie <strong className="font-semibold">Wegfall der EEG-Umlage</strong> und die <strong className="font-semibold">Strompreisbremse</strong>. So sehen Sie, ob Sie Geld zurückbekommen können.
+                  Wir prüfen auf verpasste Entlastungen wie Wegfall der <strong className="font-semibold">EEG-Umlage</strong> und die <strong className="font-semibold">Strompreisbremse</strong>. So sehen Sie, ob Sie Geld zurückbekommen können.
                 </p>
 
                 {/* Benefits List with Accent Line */}
