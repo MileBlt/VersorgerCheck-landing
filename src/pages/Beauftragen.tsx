@@ -17,6 +17,12 @@ const Beauftragen = () => {
     "Einmalige Servicepauschale, keine Abos oder versteckte Gebühren.",
   ];
 
+  const legalFeatures = [
+    "Einschätzung durch eine:n spezialisierte:n Rechtsanwält:in zu Ihrem Fall.",
+    "Prüfung von Erfolgsaussichten und nächsten Schritten bei Gegenwehr des Anbieters.",
+    "Optionales Mandat möglich – Sie entscheiden nach der ersten Einschätzung.",
+  ];
+
   return (
     <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20">
       <Navbar />
@@ -29,12 +35,9 @@ const Beauftragen = () => {
               <h1 className="font-heading text-3xl md:text-4xl font-bold text-brand-text leading-tight">
                 Ihr fertiges Antwortschreiben – so wie es Ihnen passt
               </h1>
-              <p className="text-base text-brand-text/70">
-                Wählen Sie zwischen einem kostenlosen Download oder unserem Rundum-Service für nur 7,99 €.
-              </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               <Card className="relative overflow-hidden p-6 md:p-7 bg-card shadow-sm border border-border/60 space-y-5">
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-brand-light-blue/15 via-transparent to-white" />
                 <div className="relative flex items-start justify-between gap-4">
@@ -70,22 +73,15 @@ const Beauftragen = () => {
                       <Download className="w-4 h-4" />
                       Antwortschreiben gratis erhalten
                     </Button>
-                    <Button className="w-full sm:w-auto" variant="outline">
-                      <Send className="w-4 h-4" />
-                      Direkt aus dem Browser versenden
-                    </Button>
                   </div>
-                  <p className="text-sm text-brand-text/65">
-                    Kein Abo, keine versteckten Gebühren – Sie behalten die Kontrolle.
-                  </p>
                 </div>
               </Card>
 
-              <Card className="relative overflow-hidden p-6 md:p-7 bg-card shadow-lg border-2 border-brand-orange/70 space-y-5">
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white via-white to-brand-orange/10" />
+              <Card className="relative overflow-hidden p-6 md:p-7 bg-card shadow-lg border-2 border-brand-green/60 space-y-5">
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-brand-green/15 via-transparent to-white" />
                 <div className="relative flex items-start justify-between gap-4">
                   <div className="space-y-2">
-                    <span className="inline-flex items-center rounded-full bg-brand-orange/10 text-brand-text px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em]">
+                    <span className="inline-flex items-center rounded-full bg-brand-green/12 text-brand-green px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em]">
                       Rundum-Service
                     </span>
                     <h2 className="font-heading text-xl md:text-2xl font-semibold text-brand-text">
@@ -104,6 +100,46 @@ const Beauftragen = () => {
                 <ul className="relative space-y-3">
                   {serviceFeatures.map((item) => (
                     <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-brand-green mt-0.5" />
+                      <span className="text-brand-text/85 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="relative pt-1 space-y-2">
+                  <Button className="w-full sm:w-auto bg-brand-green text-white hover:bg-brand-green/90 focus-visible:ring-brand-green/60">
+                    <Sparkles className="w-4 h-4" />
+                    Für 7,99 € beauftragen
+                  </Button>
+                  <p className="text-sm text-brand-text/65">
+                    Wir melden uns mit Updates, sobald Ihr Schreiben raus ist oder der Anbieter reagiert.
+                  </p>
+                </div>
+              </Card>
+
+              <Card className="relative overflow-hidden p-6 md:p-7 bg-card shadow-lg border-2 border-brand-orange/60 space-y-5">
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-brand-orange/15 via-transparent to-white" />
+                <div className="relative flex items-start justify-between gap-4">
+                  <div className="space-y-2">
+                    <span className="inline-flex items-center rounded-full bg-brand-orange/10 text-brand-orange px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em]">
+                      Anwaltliche Einschätzung
+                    </span>
+                    <h2 className="font-heading text-xl md:text-2xl font-semibold text-brand-text">
+                      Juristische Prüfung & Empfehlung
+                    </h2>
+                    <p className="text-brand-text/80 leading-relaxed">
+                      Sie erhalten eine kurze Einschätzung eines:r Anwält:in zu Ihrem Schreiben, inklusive klarer Empfehlung für das weitere Vorgehen.
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-heading font-bold text-brand-text">79 €</div>
+                    <div className="text-xs uppercase text-brand-text/60 tracking-wide">einmalig</div>
+                  </div>
+                </div>
+
+                <ul className="relative space-y-3">
+                  {legalFeatures.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-brand-orange mt-0.5" />
                       <span className="text-brand-text/85 leading-relaxed">{item}</span>
                     </li>
@@ -111,12 +147,12 @@ const Beauftragen = () => {
                 </ul>
 
                 <div className="relative pt-1 space-y-2">
-                  <Button className="w-full sm:w-auto">
-                    <Sparkles className="w-4 h-4" />
-                    Für 7,99 € beauftragen
+                  <Button className="w-full sm:w-auto bg-brand-orange text-white hover:bg-brand-orange/90 focus-visible:ring-brand-orange/60">
+                    <ShieldCheck className="w-4 h-4" />
+                    Für 79€ Partneranwäte beauftragen
                   </Button>
                   <p className="text-sm text-brand-text/65">
-                    Wir melden uns mit Updates, sobald Ihr Schreiben raus ist oder der Anbieter reagiert.
+                    Sie zahlen nur die Einschätzung. Weiterführende Vertretung erfolgt nur auf Wunsch.
                   </p>
                 </div>
               </Card>
