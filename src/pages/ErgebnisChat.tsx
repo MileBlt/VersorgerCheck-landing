@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, Bot, Sparkles, Upload, Loader2 } from "lucide-react";
+import { ArrowUp, Sparkles, Upload, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
@@ -121,19 +121,13 @@ const ErgebnisChat = () => {
               </h1>
             </div>
 
-            <Card className="bg-card shadow-sm border border-border/60 rounded-2xl p-5 md:p-7 space-y-5">
-              <header className="space-y-3">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.08em]">
-                  Zusammenfassung der Prüfung
-                </div>
-              </header>
-
+            <Card className="bg-card shadow-[0_12px_32px_-20px_rgba(3,68,119,0.35)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-5">
               <section className="space-y-4">
-                <div className="rounded-xl border border-[#83d2de66] bg-[#f7fcff] p-4 flex flex-col gap-4">
+                <div className="rounded-xl border border-[#83d2de80] bg-[#f4fbff] p-4 flex flex-col gap-4 -mx-5 md:-mx-7 -mt-5">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-[#e8f7ff] border border-[#83d2de80] flex items-center justify-center">
-                        <Bot className="h-5 w-5 text-[#034477]" />
+                      <div className="h-10 w-10 rounded-full bg-[#e8f4ff] border border-[#83d2de80] flex items-center justify-center">
+                        <img src="/Nur Logo Transparent.png" alt="Helpcheck Logo" className="h-6 w-6 object-contain" />
                       </div>
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-2">
@@ -162,11 +156,11 @@ const ErgebnisChat = () => {
                               message.title &&
                               message.title.toLowerCase() === "zusammenfassung der prüfung".toLowerCase();
 
-                            const baseClasses = "max-w-[85%] rounded-3xl border px-4 py-3.5 shadow-sm";
-                            const userClasses = "bg-[#0344770f] border-[#03447726] text-[#034477]";
-                            const botClasses = "bg-[#f9f9f9] border-[#e4e4e4] text-[#25252f]";
+                            const baseClasses = "max-w-full rounded-3xl border px-4 py-3.5 shadow-none";
+                            const userClasses = "bg-[#0344770d] border-[#03447726] text-[#034477]";
+                            const botClasses = "bg-white border-[#83d2de] text-[#25252f]";
                             const summaryClasses =
-                              "bg-white border-[#83d2de] shadow-[0_8px_18px_-12px_rgba(3,68,119,0.55)]";
+                              "bg-white border-[#41c8a2] shadow-[0_10px_24px_-16px_rgba(3,68,119,0.45)]";
 
                             const bubbleClasses = `${baseClasses} ${
                               message.sender === "user"
@@ -180,7 +174,7 @@ const ErgebnisChat = () => {
                               <div className={bubbleClasses}>
                                 {message.title ? (
                                   isSummaryTitle ? (
-                                    <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#e6f7f1] text-[#41c8a2] text-[11px] font-semibold uppercase tracking-[0.12em] mb-3 border border-[#c6f0df]">
+                                    <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#e6f7f1] text-[#41c8a2] text-[11px] font-semibold tracking-[0.08em] mb-3 border border-[#c6f0df]">
                                       {message.title}
                                     </div>
                                   ) : (
@@ -190,19 +184,19 @@ const ErgebnisChat = () => {
                                   )
                                 ) : null}
 
-                            {message.listItems ? (
-                              <ul className="list-disc pl-4 space-y-1 text-[15px] text-[#25252fcc]">
-                                {message.listItems.map((item, index) => (
-                                  <li key={index} className="leading-relaxed">
-                                    {item}
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : (
-                              <p className="text-[15px] text-[#25252fcc] leading-relaxed whitespace-pre-wrap">
-                                {message.content}
-                              </p>
-                            )}
+                                {message.listItems ? (
+                                  <ul className="list-disc pl-4 space-y-1 text-[15px] text-[#25252fcc]">
+                                    {message.listItems.map((item, index) => (
+                                      <li key={index} className="leading-relaxed">
+                                        {item}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <p className="text-[15px] text-[#25252fcc] leading-relaxed whitespace-pre-wrap">
+                                    {message.content}
+                                  </p>
+                                )}
 
                                 {message.actions && message.actions.length > 0 ? (
                                   <div className="mt-3 flex flex-wrap gap-2">
@@ -241,22 +235,22 @@ const ErgebnisChat = () => {
                         type="button"
                         variant="secondary"
                         size="sm"
-                        className="rounded-full bg-[#fff7ec] hover:bg-[#fff1df] text-[#25252f] border border-[#fe8f0b55] px-3"
+                        className="rounded-full bg-[#e8f7ff] hover:bg-[#dbeffc] text-[#034477] border border-[#83d2de80] px-3"
                         onClick={() => handleQuickReply(reply)}
                       >
-                        <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#fe8f0b]" />
+                        <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#034477]" />
                         {reply}
                       </Button>
                     ))}
                   </div>
 
-                  <div className="bg-white border border-[#83d2de55] rounded-[28px] p-2 shadow-[0_10px_26px_-18px_rgba(3,68,119,0.6)]">
+                  <div className="bg-white border border-[#00000022] rounded-[18px] p-2 shadow-[0_10px_26px_-18px_rgba(3,68,119,0.35)]">
                     <form onSubmit={handleSubmit} className="flex items-center gap-2">
                       <Button
                         type="button"
                         variant="ghost"
                         size="icon"
-                        className="h-11 w-11 rounded-full text-[#41c8a2] hover:bg-[#e6f7f1]"
+                        className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1]"
                       >
                         <Upload className="h-5 w-5" />
                       </Button>
@@ -264,7 +258,7 @@ const ErgebnisChat = () => {
                         value={inputValue}
                         onChange={(event) => setInputValue(event.target.value)}
                         placeholder="Stelle dem KI-Bot eine Frage …"
-                        className="flex-1 h-11 bg-white border border-[#e4e4e4] rounded-full text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-2 focus-visible:ring-[#41c8a2] focus-visible:ring-offset-0"
+                        className="flex-1 h-11 bg-white border border-transparent rounded-[14px] text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
                         aria-label="Nachricht an den KI-Assistenten"
                       />
                       <Button
