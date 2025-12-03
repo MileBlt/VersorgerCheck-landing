@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, Sparkles, Upload, Loader2 } from "lucide-react";
+import { ArrowUp, ArrowRight, Sparkles, Upload, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
@@ -199,10 +199,13 @@ const ErgebnisChat1 = () => {
                                         key={action.label}
                                         asChild
                                         size="sm"
-                                        variant="outline"
-                                        className="border-[#e4e4e4] bg-white hover:bg-[#f9f9f9] text-sm rounded-full text-[#25252f]"
+                                        variant="secondary"
+                                        className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
                                       >
-                                        <Link to={action.to}>{action.label}</Link>
+                                        <Link to={action.to} className="flex items-center gap-2">
+                                          {action.label}
+                                          <ArrowRight className="h-3.5 w-3.5" />
+                                        </Link>
                                       </Button>
                                     ))}
                                   </div>
