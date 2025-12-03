@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ErgebnisChat from "./pages/ErgebnisChat";
+import ErgebnisChat1 from "./pages/ErgebnisChat1";
 import Beauftragen from "./pages/Beauftragen";
 
 const queryClient = new QueryClient();
@@ -18,8 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/ergebnis-chat" element={<ErgebnisChat />} />
-          <Route path="/ergebnis" element={<ErgebnisChat />} />
+          <Route path="/ergebnis-chat1" element={<ErgebnisChat1 />} />
+          <Route path="/ergebnis" element={<ErgebnisChat1 />} />
           <Route path="/beauftragen" element={<Beauftragen />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
