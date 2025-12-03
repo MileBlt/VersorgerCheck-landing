@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
+import TrustStickyBanner from "@/components/TrustStickyBanner";
 
 type ChatMessage = {
   id: string;
@@ -289,7 +290,7 @@ const ErgebnisChat2 = () => {
 
               <div className="border-t border-border/70" />
 
-              <div className="flex flex-col items-center text-center gap-3 md:gap-4">
+              <div id="trust-anchor" className="flex flex-col items-center text-center gap-3 md:gap-4">
                 <div className="flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-4 text-brand-text">
                   <div className="flex items-center gap-1">
                     <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green shrink-0" />
@@ -309,6 +310,7 @@ const ErgebnisChat2 = () => {
         </div>
       </section>
 
+      <TrustStickyBanner />
       <Footer />
       <ResultStickyCTA />
     </main>
