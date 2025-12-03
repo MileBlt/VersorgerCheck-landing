@@ -55,7 +55,7 @@ const Hero = () => {
                   size="lg"
                   className="w-full h-14 text-lg font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors shadow-md"
                 >
-                  <Link to="/ergebnis-chat2">
+                  <Link to="/ergebnis-chat3">
                     <Upload className="w-5 h-5 mr-2" />
                     Stromrechnung prüfen
                   </Link>
