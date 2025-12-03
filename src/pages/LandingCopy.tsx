@@ -1,23 +1,11 @@
 import { Link } from "react-router-dom";
-import {
-  Check,
-  Zap,
-  Shield,
-  Scale,
-  FileWarning,
-  AlertTriangle,
-  RefreshCw,
-  FileText,
-  CreditCard,
-  ShieldCheck,
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
+import { Zap, Shield, Scale, AlertTriangle, FileText, CreditCard, ShieldCheck, ArrowRight, Image as ImageIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const LandingCopy = () => {
   const advantages = [
@@ -40,19 +28,9 @@ const LandingCopy = () => {
 
   const scenarios = [
     {
-      icon: FileWarning,
-      title: "Unerwartet hoher Abschlag",
-      text: "Wir prüfen, ob Ihr Anbieter Abschläge erhöht hat, ohne Entlastungen korrekt zu verrechnen.",
-    },
-    {
       icon: AlertTriangle,
       title: "Nachzahlung trotz Preisbremse",
       text: "Wir zeigen, ob die Strompreisbremse angewendet wurde und ob die Nachzahlung gerechtfertigt ist.",
-    },
-    {
-      icon: RefreshCw,
-      title: "Tarif- oder Anbieterwechsel",
-      text: "Wir prüfen, ob der neue Tarif die Entlastungen übernimmt und keine versteckten Mehrkosten enthält.",
     },
     {
       icon: FileText,
@@ -103,30 +81,47 @@ const LandingCopy = () => {
 
       <section id="stromcheck-content" className="bg-gradient-to-b from-muted/60 via-white to-white py-10 md:py-14">
         <div className="container mx-auto px-4 max-w-6xl space-y-12 md:space-y-14">
-          {/* Block 1: Problem & Nutzen mit Bild-Platzhalter */}
-          <section className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-[0_16px_40px_-24px_rgba(3,68,119,0.35)]">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
-              <div className="space-y-4 md:space-y-5">
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text">
-                  Stromkosten unklar oder zu hoch?
-                </h2>
-                <p className="text-lg md:text-xl text-brand-text/85">
-                  Viele Haushalte verstehen die Entlastungen nicht. Der Stromkosten-Check zeigt, ob Ihre Rechnung korrekt ist – einfach und verständlich.
-                </p>
-                <p className="text-brand-text/80 leading-relaxed">
-                  Wir prüfen EEG-Entfall und Strompreisbremse, decken fehlende Entlastungen auf und zeigen sofort, ob Geld zu Ihnen gehört.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild size="lg" className="h-12 px-6 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link to="/ergebnis-chat3">Stromrechnung prüfen</Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="order-first md:order-last">
-                <div className="w-full aspect-[4/3] bg-muted border border-border/60 rounded-2xl shadow-inner flex items-center justify-center text-center text-brand-text/60 text-sm md:text-base px-6">
-                  Bild-Platzhalter Stromrechnung / Person
-                </div>
-              </div>
+          {/* Block 1: Journey Cards */}
+          <section className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-[0_16px_40px_-24px_rgba(3,68,119,0.35)] space-y-6 md:space-y-8">
+            <div className="space-y-2 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-brand-text/70">So läuft es ab</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text">In 4 Schritten zur Klarheit</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {[
+                {
+                  title: "Rechnung hochladen",
+                  text: "Foto oder PDF Ihrer Stromrechnung hochladen – ein aktuelles Schreiben genügt.",
+                },
+                {
+                  title: "KI prüft Entlastungen",
+                  text: "EEG-Entfall und Strompreisbremse werden automatisch geprüft und verständlich bewertet.",
+                },
+                {
+                  title: "Ergebnis & Handlung",
+                  text: "Sie sehen klar, ob Geld zu Ihnen gehört und erhalten einen Plan mit Musterschreiben.",
+                },
+                {
+                  title: "Unterstützung möglich",
+                  text: "Fehlt etwas oder haben Sie Fragen? Wir helfen bei der nächsten Aktion und beim Versand.",
+                },
+              ].map((step, idx) => (
+                <article
+                  key={step.title}
+                  className="bg-white border border-border/60 rounded-[24px] p-4 md:p-6 shadow-[0_14px_36px_-26px_rgba(3,68,119,0.25)] flex flex-col gap-3"
+                >
+                  <div className="w-full aspect-[3/2] md:aspect-[4/3] bg-muted/50 border border-border/40 rounded-xl md:rounded-2xl shadow-inner flex flex-col items-center justify-center text-center text-brand-text/60 text-xs md:text-base px-3 md:px-4">
+                    <ImageIcon className="w-7 h-7 mb-2" />
+                    <div className="font-semibold text-brand-text/70">Bild-Platzhalter</div>
+                    <div className="text-brand-text/60">Schritt {idx + 1} – Motiv folgt</div>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-text/70">Schritt {idx + 1}</p>
+                    <h3 className="font-heading text-xl md:text-2xl font-semibold text-brand-text">{step.title}</h3>
+                    <p className="text-brand-text/80 leading-relaxed">{step.text}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
 
@@ -178,23 +173,28 @@ const LandingCopy = () => {
             </div>
           </section>
 
-          {/* Block 4: Q&A offen */}
+          {/* Block 4: Q&A mit Accordion */}
           <section className="bg-brand-light-bg rounded-3xl p-6 md:p-8 border border-border/60 shadow-sm">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text mb-3">Wie funktioniert der Stromkosten-Check?</h2>
             <p className="text-base md:text-lg text-brand-text/75 mb-6 max-w-3xl">
               Die wichtigsten Fragen und Antworten auf einen Blick.
             </p>
-            <div className="space-y-5">
-              {qna.map((item) => (
-                <div key={item.question} className="bg-white rounded-2xl border border-border px-5 py-4 shadow-sm">
-                  <div className="font-heading font-semibold text-brand-text text-lg mb-2 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-accent" />
+            <Accordion type="multiple" className="space-y-3 md:space-y-4">
+              {qna.map((item, idx) => (
+                <AccordionItem
+                  key={item.question}
+                  value={`qna-${idx}`}
+                  className="bg-white rounded-2xl border border-border px-4 md:px-5 shadow-sm"
+                >
+                  <AccordionTrigger className="text-left font-heading font-semibold text-brand-text hover:no-underline py-3">
                     {item.question}
-                  </div>
-                  <div className="text-brand-text/80 leading-relaxed">{item.answer}</div>
-                </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-brand-text/80 leading-relaxed pb-3">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </section>
 
           {/* Block 5: Abschlussband */}
