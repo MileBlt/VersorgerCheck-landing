@@ -251,7 +251,7 @@ const ErgebnisChat2 = () => {
                       <Button
                         type="submit"
                         size="icon"
-                        className="h-11 w-11 rounded-full bg-[#fe8f0b] text-white shadow-md hover:bg-[#e88109]"
+                        className="h-11 w-11 rounded-full bg-[#41c8a2] text-white shadow-md hover:bg-[#36b292]"
                         disabled={!inputValue.trim()}
                       >
                         <ArrowUp className="h-4 w-4" />
