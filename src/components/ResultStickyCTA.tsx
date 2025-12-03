@@ -3,22 +3,39 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ResultStickyCTA = () => {
-  const [showSticky, setShowSticky] = useState(false);
+  const [showSticky, setShowSticky] = useState(true);
 
   useEffect(() => {
     const target = document.getElementById("ergebnis-cta");
-    if (!target) return;
+    if (!target) {
+      setShowSticky(true);
+      return;
+    }
+
+    const checkVisibility = () => {
+      const rect = target.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      setShowSticky(!inView);
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         setShowSticky(!entry.isIntersecting);
       },
-      { threshold: 0.1 },
+      { threshold: 0, rootMargin: "-40px 0px 0px 0px" },
     );
 
+    checkVisibility();
     observer.observe(target);
-    return () => observer.disconnect();
+    window.addEventListener("scroll", checkVisibility, { passive: true });
+    window.addEventListener("resize", checkVisibility);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", checkVisibility);
+      window.removeEventListener("resize", checkVisibility);
+    };
   }, []);
 
   return (

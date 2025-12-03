@@ -1,15 +1,14 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, Sparkles, Upload, Loader2 } from "lucide-react";
+import { ArrowUp, Sparkles, Upload, Loader2, Award } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
-import TrustBar from "@/components/TrustBar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
+import { TuevAndGoogle } from "@/components/TuevAndGoogle";
 
 type ChatMessage = {
   id: string;
@@ -115,25 +114,16 @@ const ErgebnisChat2 = () => {
       <section className="flex-1">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
-            <Card className="bg-card shadow-[0_12px_32px_-20px_rgba(3,68,119,0.35)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-5">
+            <Card className="bg-transparent shadow-none border-none p-0 space-y-5">
               <section className="space-y-4">
-                <div className="rounded-xl border border-[#83d2de80] bg-[#f4fbff] p-4 flex flex-col gap-4 -mx-5 md:-mx-7 -mt-5">
+                <div className="rounded-xl border border-[#83d2de80] bg-[#f4fbff] p-4 flex flex-col gap-4">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-full bg-[#e8f4ff] border border-[#83d2de80] flex items-center justify-center">
                         <img src="/Nur Logo Transparent.png" alt="Helpcheck Logo" className="h-6 w-6 object-contain" />
                       </div>
                       <div className="space-y-0.5">
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-[#25252f]">helpcheck</span>
-                          <Badge
-                            variant="secondary"
-                            className="text-[11px] font-semibold px-2 py-0.5 bg-[#034477] text-white border border-[#034477]"
-                          >
-                            Aktiv
-                          </Badge>
-                        </div>
-                        <p className="text-xs text-[#25252fcc]">Antwortet in Sekunden auf Ihre Fragen.</p>
+                        <span className="text-sm font-semibold text-[#25252f]">helpcheck</span>
                       </div>
                     </div>
                   </div>
@@ -251,7 +241,7 @@ const ErgebnisChat2 = () => {
                       <Input
                         value={inputValue}
                         onChange={(event) => setInputValue(event.target.value)}
-                        placeholder="Stelle dem KI-Bot eine Frage …"
+                        placeholder="Eine Frage stellen"
                         className="flex-1 h-11 bg-white border border-transparent rounded-[14px] text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
                         aria-label="Nachricht an den KI-Assistenten"
                       />
@@ -267,21 +257,38 @@ const ErgebnisChat2 = () => {
                   </div>
                 </div>
               </section>
+            </Card>
 
-              <div className="border-t border-border/70" />
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1">
-                <div className="text-sm text-brand-text/75">{footerNote}</div>
+            <Card className="bg-card shadow-[0_10px_28px_-18px_rgba(3,68,119,0.28)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="text-base text-brand-text/85">{footerNote}</div>
                 <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
                   <Link to="/beauftragen">Jetzt Stromrechnung prüfen</Link>
                 </Button>
+              </div>
+
+              <div className="border-t border-border/70" />
+
+              <div className="flex flex-col items-center text-center gap-3 md:gap-4">
+                <div className="flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-4 text-brand-text">
+                  <div className="flex items-center gap-1">
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green shrink-0" />
+                    <span className="text-xs md:text-sm leading-tight">
+                      In Kooperation mit <span className="font-semibold">führenden Anwaltskanzleien</span>
+                    </span>
+                  </div>
+                  <div className="text-sm md:text-lg font-semibold whitespace-nowrap leading-tight">100.000+ geprüfte Fälle</div>
+                </div>
+
+                <div className="flex items-center justify-center scale-75 md:scale-90">
+                  <TuevAndGoogle />
+                </div>
               </div>
             </Card>
           </div>
         </div>
       </section>
 
-      <TrustBar />
       <Footer />
       <ResultStickyCTA />
     </main>
