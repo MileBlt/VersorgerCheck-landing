@@ -189,8 +189,8 @@ const ErgebnisChat3 = () => {
                                         key={action.label}
                                         asChild
                                         size="sm"
-                                        variant="default"
-                                        className="bg-[#034477] text-white hover:bg-[#02365f] border-[#034477] text-sm rounded-full shadow-sm px-4"
+                                        variant="secondary"
+                                        className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
                                       >
                                         <Link to={action.to} className="flex items-center gap-2">
                                           {action.label}
