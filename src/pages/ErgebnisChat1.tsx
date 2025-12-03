@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, ArrowRight, Sparkles, Upload, Loader2 } from "lucide-react";
+import { ArrowUp, ArrowRight, Sparkles, Upload, Loader2, Camera } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
@@ -241,8 +241,17 @@ const ErgebnisChat1 = () => {
                     ))}
                   </div>
 
-                  <div className="bg-white border border-[#00000022] rounded-[18px] p-2 shadow-[0_10px_26px_-18px_rgba(3,68,119,0.35)]">
-                    <form onSubmit={handleSubmit} className="flex items-center gap-2">
+                  <div className="bg-white border border-[#00000022] rounded-[18px] p-2 shadow-[0_10px_26px_-18px_rgba(3,68,119,0.35)] space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Input
+                        value={inputValue}
+                        onChange={(event) => setInputValue(event.target.value)}
+                        placeholder="Stelle dem KI-Bot eine Frage …"
+                        className="flex-1 h-11 bg-white border border-transparent rounded-[14px] text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
+                        aria-label="Nachricht an den KI-Assistenten"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
                       <Button
                         type="button"
                         variant="ghost"
@@ -251,22 +260,30 @@ const ErgebnisChat1 = () => {
                       >
                         <Upload className="h-5 w-5" />
                       </Button>
-                      <Input
-                        value={inputValue}
-                        onChange={(event) => setInputValue(event.target.value)}
-                        placeholder="Stelle dem KI-Bot eine Frage …"
-                        className="flex-1 h-11 bg-white border border-transparent rounded-[14px] text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
-                        aria-label="Nachricht an den KI-Assistenten"
-                      />
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1] md:hidden"
+                        aria-label="Kamera öffnen"
+                      >
+                        <Camera className="h-5 w-5" />
+                      </Button>
+                      <div className="flex-1" />
                       <Button
                         type="submit"
                         size="icon"
                         className="h-11 w-11 rounded-full bg-[#41c8a2] text-white shadow-md hover:bg-[#36b292]"
                         disabled={!inputValue.trim()}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          addUserMessage(inputValue);
+                        }}
+                        aria-label="Nachricht senden"
                       >
                         <ArrowUp className="h-4 w-4" />
                       </Button>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </section>
