@@ -3,22 +3,15 @@ import { Upload, Sparkles, CheckCircle } from "lucide-react";
 const steps = [
   {
     icon: Upload,
-    title: "Stromrechnung hochladen",
-    description: "Laden Sie eine aktuelle Stromrechnung als Foto oder PDF hoch. Ein Handyfoto reicht."
+    title: "Stromrechnung hochladen"
   },
   {
     icon: Sparkles,
-    title: "KI prüft Entlastungen",
-    description: (
-      <>
-        Unsere KI prüft, ob der <strong className="font-semibold">Wegfall der EEG-Umlage</strong> ab Mitte 2022 richtig weitergegeben wurde und ob die <strong className="font-semibold">Strompreisbremse</strong> ab 2023 stimmt. Sie sehen, ob Ihre Rechnung zu hoch ist.
-      </>
-    )
+    title: "KI prüft Entlastungen"
   },
   {
     icon: CheckCircle,
-    title: "Ergebnis und Rückforderung",
-    description: "Sie erhalten eine leicht verständliche Einschätzung und ein fertiges Schreiben, mit dem Sie Rückzahlungen bei Ihrem Anbieter verlangen können. Auf Wunsch hilft Ihnen ein spezialisierter Anwalt."
+    title: "Ergebnis und Rückforderung"
   }
 ];
 
@@ -41,9 +34,6 @@ const HowItWorks = () => {
                 <h3 className="font-heading text-xl md:text-2xl font-semibold text-white">
                   {step.title}
                 </h3>
-                <p className="text-white/90 leading-relaxed">
-                  {step.description}
-                </p>
               </div>
             );
           })}

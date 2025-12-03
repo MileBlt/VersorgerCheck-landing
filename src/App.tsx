@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import ErgebnisChat1 from "./pages/ErgebnisChat1";
 import ErgebnisChat2 from "./pages/ErgebnisChat2";
 import ErgebnisChat3 from "./pages/ErgebnisChat3";
+import LandingCopy from "./pages/LandingCopy";
 import Beauftragen from "./pages/Beauftragen";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/ergebnis-chat2" element={<ErgebnisChat2 />} />
           <Route path="/ergebnis-chat3" element={<ErgebnisChat3 />} />
           <Route path="/ergebnis" element={<ErgebnisChat3 />} />
+          <Route path="/landing-copy" element={<LandingCopy />} />
           <Route path="/beauftragen" element={<Beauftragen />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
