@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Shield, Scale, Check, ArrowRight, Image as ImageIcon } from "lucide-react";
+import { Zap, Shield, Scale, Check, Image as ImageIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
@@ -147,31 +147,41 @@ const LandingCopy = () => {
             </Accordion>
           </section>
 
-          {/* Block 5: Abschlussband */}
+          {/* Block 5: CTA-Card im Zweispalter */}
           <section className="space-y-4">
-            <div className="bg-secondary text-white rounded-3xl p-6 md:p-10 text-center space-y-4 shadow-lg">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold">Stromkosten müssen weder kompliziert noch stressig sein</h2>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-                Der Stromkosten-Check zeigt klar, ob Entlastungen fehlen und ob Geld zu Ihnen gehört – ohne Fachwissen, in wenigen Minuten.
-              </p>
-              <div className="flex justify-center gap-3 flex-wrap">
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-12 px-6 text-base font-semibold bg-brand-orange text-white hover:bg-brand-orange/90"
-                >
-                  <Link to="/ergebnis-chat3">Jetzt Stromrechnung prüfen</Link>
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="h-12 px-6 text-base font-semibold bg-white text-brand-text border border-white/60 hover:bg-white/90"
-                  asChild
-                >
-                  <Link to="/ergebnis-chat3">
-                    Mehr erfahren <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
+            <div className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-[0_16px_40px_-24px_rgba(3,68,119,0.35)]">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+                <div className="space-y-4 md:space-y-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.12em] text-brand-text/70">Stromkosten-Check</p>
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text">
+                    Stromkosten unklar oder zu hoch?
+                  </h2>
+                  <p className="text-lg md:text-xl text-brand-text/85">
+                    Wir zeigen, ob EEG-Entfall und Strompreisbremse korrekt angewendet wurden – und ob Geld zu Ihnen gehört.
+                  </p>
+                  <p className="text-brand-text/80 leading-relaxed">
+                    Verständlich erklärt, mit klarer Handlungsempfehlung und Musterschreiben. Keine Überraschungen, nur Transparenz.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="h-12 px-6 text-base font-semibold bg-brand-orange text-white hover:bg-brand-orange/90 rounded-2xl"
+                      id="ergebnis-cta"
+                      data-cta="ergebnis"
+                      data-sticky-target="cta"
+                    >
+                      <Link to="/ergebnis-chat3">Stromrechnung prüfen</Link>
+                    </Button>
+                  </div>
+                </div>
+                <div className="order-first md:order-last">
+                  <div className="w-full aspect-[4/3] bg-muted border border-border/60 rounded-2xl shadow-inner flex flex-col items-center justify-center text-center text-brand-text/60 text-sm md:text-base px-6">
+                    <ImageIcon className="w-8 h-8 mb-2" />
+                    <div className="font-semibold text-brand-text/70">Bild-Platzhalter</div>
+                    <div className="text-brand-text/60">Stromrechnung / Person am Laptop</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="bg-card border border-border/70 rounded-2xl p-4 md:p-5 flex items-center gap-4 shadow-sm">

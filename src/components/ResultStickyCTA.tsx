@@ -6,35 +6,29 @@ const ResultStickyCTA = () => {
   const [showSticky, setShowSticky] = useState(true);
 
   useEffect(() => {
-    const target = document.getElementById("ergebnis-cta");
-    if (!target) {
+    const targets = Array.from(document.querySelectorAll('[id="ergebnis-cta"], [data-cta="ergebnis"], [data-sticky-target="cta"]'));
+    if (!targets.length) {
       setShowSticky(true);
       return;
     }
 
-    const checkVisibility = () => {
-      const rect = target.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      setShowSticky(!inView);
+    const isAnyCtaVisible = () =>
+      targets.some((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+      });
+
+    const updateVisibility = () => {
+      setShowSticky(!isAnyCtaVisible());
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setShowSticky(!entry.isIntersecting);
-      },
-      { threshold: 0, rootMargin: "-40px 0px 0px 0px" },
-    );
-
-    checkVisibility();
-    observer.observe(target);
-    window.addEventListener("scroll", checkVisibility, { passive: true });
-    window.addEventListener("resize", checkVisibility);
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", checkVisibility);
-      window.removeEventListener("resize", checkVisibility);
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
     };
   }, []);
 
@@ -49,12 +43,10 @@ const ResultStickyCTA = () => {
         <div className="flex-1">
           <div className="text-sm font-semibold text-brand-text">Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten.</div>
         </div>
-        <Button
-          asChild
-          size="sm"
-          className="h-11 px-4 text-sm font-semibold"
-        >
-          <Link to="/beauftragen" aria-label="Zum CTA springen">Jetzt prüfen</Link>
+        <Button asChild size="sm" className="h-11 px-4 text-sm font-semibold">
+          <Link to="/beauftragen" aria-label="Zum CTA springen">
+            Jetzt prüfen
+          </Link>
         </Button>
       </div>
     </div>
