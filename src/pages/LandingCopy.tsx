@@ -11,17 +11,17 @@ const LandingCopy = () => {
   const advantages = [
     {
       icon: Zap,
-      title: "Verständnis",
+      title: "Schwierige Dokumente - einfach erklärt",
       text: "EEG-Umlage und Strompreisbremse endlich klar – Sie wissen, was auf Ihrer Rechnung steht.",
     },
     {
       icon: Shield,
-      title: "Kontrolle",
+      title: "Nie wieder zu viel bezahlen",
       text: "Sekundencheck zeigt, ob Entlastungen fehlen oder Preise zu hoch angesetzt sind.",
     },
     {
       icon: Scale,
-      title: "Handlung",
+      title: "Handeln statt warten",
       text: "Konkreter Plan mit Hinweisen und Musterschreiben, falls etwas nicht stimmt.",
     },
   ];
@@ -72,15 +72,15 @@ const LandingCopy = () => {
                 },
                 {
                   title: "KI prüft Entlastungen",
-                  text: "EEG-Entfall und Strompreisbremse werden automatisch geprüft und verständlich bewertet. Sie haben weitere Fragen? Tippen Sie diese einfach in den Chat und erhalten Sie in Sekunden Klarheit.",
+                  text: "EEG-Entfall und Strompreisbremse werden automatisch geprüft und leicht verständlich erklärt.",
                 },
                 {
-                  title: "Ergebnis & Handlung",
-                  text: "Sie sehen klar, ob Geld zu Ihnen gehört und erhalten einen Plan mit Musterschreiben.",
+                  title: "Ergebnis und Rückfragen",
+                  text: "Sie haben noch Fragen? Stellen Sie diese im Chat und erhalten Sie in Sekunden eine Antwort.",
                 },
                 {
-                  title: "Unterstützung möglich",
-                  text: "Fehlt etwas oder haben Sie Fragen? Wir helfen bei der nächsten Aktion und beim Versand.",
+                  title: "Geld zurückfordern",
+                  text: "Wir dürfen Sie untersützen? Perfekt! Sie möchten sich selber kümmern? Super!",
                 },
               ].map((step, idx) => (
                 <article
