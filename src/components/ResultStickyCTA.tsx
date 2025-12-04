@@ -12,11 +12,13 @@ const ResultStickyCTA = () => {
       return;
     }
 
-    const isAnyCtaVisible = () =>
-      targets.some((el) => {
+    const isAnyCtaVisible = () => {
+      const stickyOffset = 120; // approximate height of sticky bar + buffer
+      return targets.some((el) => {
         const rect = el.getBoundingClientRect();
-        return rect.top < window.innerHeight && rect.bottom > 0;
+        return rect.top < window.innerHeight - stickyOffset && rect.bottom > stickyOffset;
       });
+    };
 
     const updateVisibility = () => {
       setShowSticky(!isAnyCtaVisible());
