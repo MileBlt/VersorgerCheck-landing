@@ -38,8 +38,13 @@ const ErgebnisChat4 = () => {
       actions: [
         { label: "Ja, Rechnung liegt vor", replyText: "Ja, Rechnung liegt vor" },
         { label: "Nein, brauche Hilfe", replyText: "Nein, brauche Hilfe" },
-        { label: "Was bedeutet EEG-Umlage?", replyText: "Was bedeutet EEG-Umlage?" },
+        { label: "Ich weiß es nicht", replyText: "Ich weiß es nicht" },
       ],
+    },
+    {
+      id: "user-greeting-response",
+      sender: "user",
+      content: "Ja, Rechnung liegt vor",
     },
     {
       id: "bot-closing",
