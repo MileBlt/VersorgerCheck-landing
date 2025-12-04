@@ -57,7 +57,7 @@ const LandingCopy = () => {
       <Hero />
 
       <section id="stromcheck-content" className="bg-gradient-to-b from-muted/60 via-white to-white py-10 md:py-14">
-        <div className="container mx-auto px-4 max-w-6xl space-y-12 md:space-y-14">
+        <div className="container mx-auto px-4 max-w-6xl space-y-8 md:space-y-10">
           {/* Block 1: Journey Cards */}
           <section className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-[0_16px_40px_-24px_rgba(3,68,119,0.35)] space-y-6 md:space-y-8">
             <div className="space-y-2 text-center">
@@ -68,11 +68,11 @@ const LandingCopy = () => {
               {[
                 {
                   title: "Rechnung hochladen",
-                  text: "Foto oder PDF Ihrer Stromrechnung hochladen – ein aktuelles Schreiben genügt.",
+                  text: "Foto oder PDF Ihrer Stromrechnung hochladen – ein Foto genügt.",
                 },
                 {
                   title: "KI prüft Entlastungen",
-                  text: "EEG-Entfall und Strompreisbremse werden automatisch geprüft und verständlich bewertet.",
+                  text: "EEG-Entfall und Strompreisbremse werden automatisch geprüft und verständlich bewertet. Sie haben weitere Fragen? Tippen Sie diese einfach in den Chat und erhalten Sie in Sekunden Klarheit.",
                 },
                 {
                   title: "Ergebnis & Handlung",

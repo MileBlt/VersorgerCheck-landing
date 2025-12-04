@@ -44,8 +44,8 @@ const ErgebnisChat3 = () => {
       content: "",
       listItems: recommendations,
       actions: [
-        { label: "Musterschreiben öffnen", to: "/beauftragen" },
-        { label: "Rückzahlung jetzt anstoßen", to: "/beauftragen" },
+        { label: "Jetzt Rückzahlung erhalten", to: "/beauftragen" },
+        { label: "Jetzt Rückzahlung erhalten", to: "/beauftragen" },
       ],
     },
   ];

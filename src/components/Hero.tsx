@@ -64,11 +64,29 @@ const Hero = () => {
                   Jetzt Foto oder PDF Ihrer Rechnung hochladen!
                 </p>
               </div>
+
+              {/* Mobile: Trust content unter dem CTA */}
+              <div className="block md:hidden border-t border-border/60 pt-4 space-y-3">
+                <div className="flex flex-row flex-wrap items-center justify-center gap-2 text-brand-text">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-brand-green" />
+                    <span className="text-xs font-semibold leading-tight">
+                      In Kooperation mit führenden Anwaltskanzleien
+                    </span>
+                  </div>
+                  <div className="text-xs font-semibold whitespace-nowrap leading-tight">
+                    100.000+ geprüfte Fälle
+                  </div>
+                </div>
+                <div className="flex items-center justify-center scale-75">
+                  <TuevAndGoogle />
+                </div>
+              </div>
             </Card>
           </div>
 
             {/* Trust Row */}
-            <div className="bg-card border border-border rounded-2xl px-6 py-6 md:px-8 md:py-8 shadow-sm">
+            <div className="bg-card border border-border rounded-2xl px-6 py-6 md:px-8 md:py-8 shadow-sm hidden md:block">
               <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-4">
                 <div className="flex flex-row flex-wrap items-center justify-center gap-2 text-brand-text">
                   <div className="flex items-center gap-2">
