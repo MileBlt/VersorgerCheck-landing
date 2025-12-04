@@ -1,6 +1,6 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUp, ArrowRight, Sparkles, Upload, Loader2, Award, Camera } from "lucide-react";
+import { ArrowUp, ArrowRight, Upload, Loader2, Award, Camera } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ResultStickyCTA from "@/components/ResultStickyCTA";
@@ -16,10 +16,10 @@ type ChatMessage = {
   content: string;
   title?: string;
   listItems?: string[];
-  actions?: { label: string; to: string }[];
+  actions?: { label: string; to?: string; replyText?: string }[];
 };
 
-const ErgebnisChat3 = () => {
+const ErgebnisChat4 = () => {
   const summaryText =
     "Auf Ihrer Rechnung steht ab Juli 2022 noch eine EEG-Umlage. Das ist nicht erlaubt, denn seit 1.7.2022 liegt sie bei 0 ct/kWh und wurde abgeschafft. Die Entlastung wurde offenbar nicht weitergegeben – deshalb kann eine Rückzahlung fällig sein.";
 
@@ -31,6 +31,22 @@ const ErgebnisChat3 = () => {
   const footerNote = "Nur noch ein Schritt, um Ihre Rückzahlung zu erhalten.";
 
   const initialMessages: ChatMessage[] = [
+    {
+      id: "bot-greeting",
+      sender: "bot",
+      content: "Hallo, um Ihnen zu helfen muss ich ein paar Dinge wissen. Haben Sie eine Stromrechnung ab dem Jahr 2022?",
+      actions: [
+        { label: "Ja, Rechnung liegt vor", replyText: "Ja, Rechnung liegt vor" },
+        { label: "Nein, brauche Hilfe", replyText: "Nein, brauche Hilfe" },
+        { label: "Was bedeutet EEG-Umlage?", replyText: "Was bedeutet EEG-Umlage?" },
+      ],
+    },
+    {
+      id: "bot-closing",
+      sender: "bot",
+      title: "Abschluss eines Chatdialogs",
+      content: "Danke für Ihre Angaben. Ich habe den Check abgeschlossen – hier sind Ihre Ergebnisse.",
+    },
     {
       id: "bot-befund",
       sender: "bot",
@@ -55,7 +71,6 @@ const ErgebnisChat3 = () => {
   const [isThinking, setIsThinking] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-  const quickReplies = ["Button 1", "Button 2", "Button 3"];
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -96,15 +111,6 @@ const ErgebnisChat3 = () => {
       setMessages((prev) => [...prev, botReply]);
       setIsThinking(false);
     }, 450);
-  };
-
-  const handleQuickReply = (text: string) => {
-    addUserMessage(text);
-  };
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    addUserMessage(inputValue);
   };
 
   return (
@@ -184,20 +190,42 @@ const ErgebnisChat3 = () => {
 
                                 {message.actions && message.actions.length > 0 ? (
                                   <div className="mt-3 flex flex-wrap gap-2">
-                                    {message.actions.map((action, index) => (
-                                      <Button
-                                        key={`${action.label}-${action.to}-${index}`}
-                                        asChild
-                                        size="sm"
-                                        variant="secondary"
-                                        className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
-                                      >
-                                        <Link to={action.to} className="flex items-center gap-2">
-                                          {action.label}
-                                          <ArrowRight className="h-3.5 w-3.5" />
-                                        </Link>
-                                      </Button>
-                                    ))}
+                                    {message.actions.map((action, index) => {
+                                      const key = `${action.label}-${action.to ?? "reply"}-${index}`;
+
+                                      if (action.to) {
+                                        return (
+                                          <Button
+                                            key={key}
+                                            asChild
+                                            size="sm"
+                                            variant="secondary"
+                                            className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
+                                          >
+                                            <Link to={action.to} className="flex items-center gap-2">
+                                              {action.label}
+                                              <ArrowRight className="h-3.5 w-3.5" />
+                                            </Link>
+                                          </Button>
+                                        );
+                                      }
+
+                                      return (
+                                        <Button
+                                          key={key}
+                                          type="button"
+                                          size="sm"
+                                          variant="secondary"
+                                          className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
+                                          onClick={() => addUserMessage(action.replyText || action.label)}
+                                        >
+                                          <span className="flex items-center gap-2">
+                                            {action.label}
+                                            <ArrowRight className="h-3.5 w-3.5" />
+                                          </span>
+                                        </Button>
+                                      );
+                                    })}
                                   </div>
                                 ) : null}
                               </div>
@@ -214,22 +242,6 @@ const ErgebnisChat3 = () => {
                       <div ref={chatEndRef} />
                     </div>
                   </ScrollArea>
-
-                  <div className="flex flex-wrap gap-2">
-                    {quickReplies.map((reply) => (
-                      <Button
-                        key={reply}
-                        type="button"
-                        variant="secondary"
-                        size="sm"
-                        className="rounded-full bg-[#e8f7ff] hover:bg-[#dbeffc] text-[#034477] border border-[#83d2de80] px-3"
-                        onClick={() => handleQuickReply(reply)}
-                      >
-                        <Sparkles className="h-3.5 w-3.5 mr-1.5 text-[#034477]" />
-                        {reply}
-                      </Button>
-                    ))}
-                  </div>
 
                   <div className="bg-white border border-[#00000022] rounded-[18px] p-2 shadow-[0_10px_26px_-18px_rgba(3,68,119,0.35)] space-y-2">
                     <div className="flex items-center gap-2">
@@ -315,4 +327,4 @@ const ErgebnisChat3 = () => {
   );
 };
 
-export default ErgebnisChat3;
+export default ErgebnisChat4;
