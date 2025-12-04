@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Zap, Shield, Scale, AlertTriangle, FileText, CreditCard, ShieldCheck, ArrowRight, Image as ImageIcon } from "lucide-react";
+import { Zap, Shield, Scale, Check, ArrowRight, Image as ImageIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
@@ -23,29 +23,6 @@ const LandingCopy = () => {
       icon: Scale,
       title: "Handlung",
       text: "Konkreter Plan mit Hinweisen und Musterschreiben, falls etwas nicht stimmt.",
-    },
-  ];
-
-  const scenarios = [
-    {
-      icon: AlertTriangle,
-      title: "Nachzahlung trotz Preisbremse",
-      text: "Wir zeigen, ob die Strompreisbremse angewendet wurde und ob die Nachzahlung gerechtfertigt ist.",
-    },
-    {
-      icon: FileText,
-      title: "Unklare Nachforderung",
-      text: "Sie sehen schnell, welche Posten fraglich sind und wie Sie gezielt nachhaken können.",
-    },
-    {
-      icon: CreditCard,
-      title: "Dauerhaft hohe Abschläge",
-      text: "Wir decken auf, ob Abschläge zu hoch angesetzt sind und wo Sie ansetzen können.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Sie wollen Sicherheit",
-      text: "Kurzcheck für alle, die sicher sein wollen, dass keine Entlastung übersehen wurde.",
     },
   ];
 
@@ -146,34 +123,7 @@ const LandingCopy = () => {
             </div>
           </section>
 
-          {/* Block 3: Szenarien-Grid */}
-          <section className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-sm">
-            <div className="space-y-4 md:space-y-5">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text">Der Check hilft besonders bei …</h2>
-              <p className="text-brand-text/80 text-base md:text-lg max-w-3xl">
-                Typische Situationen, in denen wir Klarheit schaffen und mögliche Rückzahlungen sichtbar machen.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {scenarios.map((scenario) => {
-                  const Icon = scenario.icon;
-                  return (
-                    <article
-                      key={scenario.title}
-                      className="bg-muted/60 border border-border/60 rounded-2xl p-4 md:p-5 flex flex-col gap-2 shadow-inner"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-white border border-accent/20 flex items-center justify-center mb-1">
-                        <Icon className="w-5 h-5 text-accent" />
-                      </div>
-                      <h3 className="font-heading text-lg md:text-xl font-semibold text-brand-text">{scenario.title}</h3>
-                      <p className="text-brand-text/80 leading-relaxed">{scenario.text}</p>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-
-          {/* Block 4: Q&A mit Accordion */}
+          {/* Block 3: Q&A mit Accordion */}
           <section className="bg-brand-light-bg rounded-3xl p-6 md:p-8 border border-border/60 shadow-sm">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-text mb-3">Wie funktioniert der Stromkosten-Check?</h2>
             <p className="text-base md:text-lg text-brand-text/75 mb-6 max-w-3xl">
@@ -224,14 +174,14 @@ const LandingCopy = () => {
                 </Button>
               </div>
             </div>
-            <div className="bg-card border border-border/70 rounded-2xl p-4 md:p-5 flex items-center gap-3 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-accent" />
+            <div className="bg-card border border-border/70 rounded-2xl p-4 md:p-5 flex items-center gap-4 shadow-sm">
+              <div className="w-6 h-6 rounded-full bg-[hsl(var(--brand-blue))] flex items-center justify-center shrink-0">
+                <Check className="w-3.5 h-3.5 text-white" />
               </div>
               <div>
                 <div className="font-heading font-semibold text-brand-text">Kein Kostenrisiko für Sie</div>
                 <p className="text-brand-text/75 text-sm md:text-base">
-                  Prüfung kostenlos, Kosten erst bei beauftragten Zusatzleistungen – transparent vorab.
+                  Kostenlose Prüfung. Die Zusatzleistungen sind optional und werden transparent dargestellt.
                 </p>
               </div>
             </div>
