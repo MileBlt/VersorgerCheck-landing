@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type ChatMessage = {
   id: string;
@@ -18,11 +17,12 @@ type ChatMessage = {
   title?: string;
   listItems?: string[];
   actions?: { label: string; to?: string; replyText?: string }[];
+  imageSrc?: string;
 };
 
 const ErgebnisChat4 = () => {
   const summaryText =
-    "Auf Ihrer Rechnung steht ab Juli 2022 noch eine EEG-Umlage. Das ist nicht erlaubt, denn seit 1.7.2022 liegt sie bei 0 ct/kWh und wurde abgeschafft. Die Entlastung wurde offenbar nicht weitergegeben – deshalb kann eine Rückzahlung fällig sein.";
+    "Erfolg. Sie haben Anspruch auf eine Rückzahlung.\nSeit dem 1.7.2022 beträgt die EEG-Umlage 0 ct/kWh und wurde abgeschafft. Wird sie auf Ihrer Rechnung ab Juli 2022 trotzdem noch berechnet, ist das unzulässig und der zu viel gezahlte Betrag kann zurückverlangt werden.";
 
   const recommendations = [
     "Nutzen Sie im nächsten Schritt unser Musterschreiben, um die Rückzahlung zu verlangen.",
@@ -57,6 +57,12 @@ const ErgebnisChat4 = () => {
       ],
     },
     {
+      id: "user-upload",
+      sender: "user",
+      content: "Foto hochgeladen.",
+      imageSrc: "/StromrechnungBeispiel.png",
+    },
+    {
       id: "bot-closing",
       sender: "bot",
       title: "Abschluss eines Chatdialogs",
@@ -68,26 +74,13 @@ const ErgebnisChat4 = () => {
       title: "Zusammenfassung der Prüfung",
       content: summaryText,
     },
-    {
-      id: "bot-empfehlungen",
-      sender: "bot",
-      title: "Handlungsempfehlungen",
-      content: "",
-      listItems: recommendations,
-      actions: [
-        { label: "Jetzt Rückzahlung erhalten", to: "/beauftragen" },
-        { label: "Jetzt Rückzahlung erhalten", to: "/beauftragen" },
-      ],
-    },
   ];
 
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
-  const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-  const cameraInputRef = useRef<HTMLInputElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -133,27 +126,21 @@ const ErgebnisChat4 = () => {
 
   const handleUploadSelected = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
-      setIsUploadDialogOpen(false);
       event.target.value = "";
     }
   };
 
-  const openCameraPicker = () => {
-    cameraInputRef.current?.click();
-  };
-
-  const openFilePicker = () => {
+  const openSystemPicker = () => {
     fileInputRef.current?.click();
   };
 
   return (
-    <>
-      <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20" data-testid="ergebnischat4-page">
-        <Navbar />
+    <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20" data-testid="ergebnischat4-page">
+      <Navbar />
 
-        <section className="flex-1">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
+      <section className="flex-1">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
             <Card
               className="bg-transparent shadow-none border-none p-0 space-y-5"
               data-testid="ergebnischat4-chat-shell"
@@ -185,6 +172,9 @@ const ErgebnisChat4 = () => {
                             const isSummaryTitle =
                               message.title &&
                               message.title.toLowerCase() === "zusammenfassung der prüfung".toLowerCase();
+                            const isSummaryMessage = message.id === "bot-befund";
+                            const [firstLine, ...restLines] = message.content.split("\n");
+                            const restText = restLines.join(" ").trim();
 
                             const baseClasses = "max-w-[90%] rounded-3xl border px-4 py-3.5 shadow-none";
                             const userClasses = "bg-[#0344770d] border-[#03447726] text-[#034477]";
@@ -223,9 +213,32 @@ const ErgebnisChat4 = () => {
                                     ))}
                                   </ul>
                                 ) : (
-                                  <p className="text-[15px] text-[#25252fcc] leading-relaxed whitespace-pre-wrap">
-                                    {message.content}
-                                  </p>
+                                  <>
+                                    {isSummaryMessage ? (
+                                      <p className="text-[15px] leading-relaxed whitespace-pre-wrap">
+                                        <span className="font-semibold text-[#25252f]">{firstLine}</span>
+                                        {restText ? (
+                                          <>
+                                            <br />
+                                            <span className="text-[#25252fcc]">{restText}</span>
+                                          </>
+                                        ) : null}
+                                      </p>
+                                    ) : (
+                                      <p className="text-[15px] text-[#25252fcc] leading-relaxed whitespace-pre-wrap">
+                                        {message.content}
+                                      </p>
+                                    )}
+                                    {message.imageSrc ? (
+                                      <div className="mt-2">
+                                        <img
+                                          src={message.imageSrc}
+                                          alt="Hochgeladenes Dokument"
+                                          className="rounded-2xl shadow-sm border border-[#0344771a] w-[70%] max-w-[320px] md:max-w-[360px] object-cover"
+                                        />
+                                      </div>
+                                    ) : null}
+                                  </>
                                 )}
 
                                 {message.actions && message.actions.length > 0 ? (
@@ -259,7 +272,7 @@ const ErgebnisChat4 = () => {
                                           data-testid={`ergebnischat4-action-${action.label}`}
                                           onClick={() => {
                                             if (action.label === "Foto hochladen") {
-                                              setIsUploadDialogOpen(true);
+                                              openSystemPicker();
                                               return;
                                             }
                                             addUserMessage(action.replyText || action.label);
@@ -307,6 +320,7 @@ const ErgebnisChat4 = () => {
                         size="icon"
                         className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1]"
                         data-testid="ergebnischat4-upload"
+                        onClick={openSystemPicker}
                       >
                         <Upload className="h-5 w-5" />
                       </Button>
@@ -317,6 +331,7 @@ const ErgebnisChat4 = () => {
                         className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1] md:hidden"
                         aria-label="Kamera öffnen"
                         data-testid="ergebnischat4-camera"
+                        onClick={openSystemPicker}
                       >
                         <Camera className="h-5 w-5" />
                       </Button>
@@ -380,57 +395,18 @@ const ErgebnisChat4 = () => {
         </div>
       </section>
 
-        <Footer />
-        <ResultStickyCTA />
-      </main>
+      <Footer />
+      <ResultStickyCTA />
 
-      <Dialog open={isUploadDialogOpen} onOpenChange={setIsUploadDialogOpen}>
-        <DialogContent className="max-w-sm" data-testid="ergebnischat4-upload-dialog">
-          <DialogHeader>
-            <DialogTitle className="text-lg font-semibold text-[#25252f]">Foto hochladen</DialogTitle>
-            <DialogDescription className="text-sm text-[#25252fcc]">
-              Wählen Sie, ob Sie die Kamera öffnen oder eine Datei auswählen möchten.
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="flex flex-col gap-2">
-            <Button
-              type="button"
-              className="justify-center"
-              onClick={openCameraPicker}
-              data-testid="ergebnischat4-upload-camera"
-            >
-              Kamera öffnen
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              className="justify-center"
-              onClick={openFilePicker}
-              data-testid="ergebnischat4-upload-file"
-            >
-              Datei hochladen
-            </Button>
-          </div>
-
-          <input
-            ref={cameraInputRef}
-            type="file"
-            accept="image/*"
-            capture="environment"
-            className="hidden"
-            onChange={handleUploadSelected}
-          />
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleUploadSelected}
-          />
-        </DialogContent>
-      </Dialog>
-    </>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        capture="environment"
+        className="hidden"
+        onChange={handleUploadSelected}
+      />
+    </main>
   );
 };
 
