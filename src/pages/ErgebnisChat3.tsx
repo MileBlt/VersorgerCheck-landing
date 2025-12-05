@@ -53,8 +53,10 @@ const ErgebnisChat3 = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [isCtaVisible, setIsCtaVisible] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLButtonElement | null>(null);
   const quickReplies = ["Button 1", "Button 2", "Button 3"];
 
   useEffect(() => {
@@ -67,6 +69,20 @@ const ErgebnisChat3 = () => {
         clearTimeout(replyTimeout.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const target = ctaRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsCtaVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
 
   const addUserMessage = (text: string) => {
@@ -282,7 +298,7 @@ const ErgebnisChat3 = () => {
             <Card className="bg-card shadow-[0_10px_28px_-18px_rgba(3,68,119,0.28)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div className="text-base text-brand-text/85">{footerNote}</div>
-                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
+                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta" ref={ctaRef}>
                   <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
                 </Button>
               </div>
@@ -310,7 +326,7 @@ const ErgebnisChat3 = () => {
       </section>
 
       <Footer />
-      <ResultStickyCTA />
+      {!isCtaVisible ? <ResultStickyCTA /> : null}
     </main>
   );
 };

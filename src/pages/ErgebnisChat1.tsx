@@ -54,8 +54,10 @@ const ErgebnisChat1 = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [isCtaVisible, setIsCtaVisible] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLButtonElement | null>(null);
   const quickReplies = ["Button 1", "Button 2", "Button 3"];
 
   useEffect(() => {
@@ -68,6 +70,20 @@ const ErgebnisChat1 = () => {
         clearTimeout(replyTimeout.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const target = ctaRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsCtaVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
 
   const addUserMessage = (text: string) => {
@@ -292,9 +308,27 @@ const ErgebnisChat1 = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1">
                 <div className="text-sm text-brand-text/75">{footerNote}</div>
-                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
-                  <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
+                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta" ref={ctaRef}>
+                  <Link to="/beauftragen">Jetzt Stromrechnung prüfen</Link>
                 </Button>
+              </div>
+
+              <div className="border-t border-border/70" />
+
+              <div className="flex flex-col items-center text-center gap-3 md:gap-4">
+                <div className="flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-4 text-brand-text">
+                  <div className="flex items-center gap-1">
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-brand-green shrink-0" />
+                    <span className="text-xs md:text-sm leading-tight">
+                      In Kooperation mit <span className="font-semibold">führenden Anwaltskanzleien</span>
+                    </span>
+                  </div>
+                  <div className="text-sm md:text-lg font-semibold whitespace-nowrap leading-tight">100.000+ geprüfte Fälle</div>
+                </div>
+
+                <div className="flex items-center justify-center scale-75 md:scale-90">
+                  <TuevAndGoogle />
+                </div>
               </div>
             </Card>
           </div>
@@ -303,7 +337,7 @@ const ErgebnisChat1 = () => {
 
       <TrustBar />
       <Footer />
-      <ResultStickyCTA />
+      {!isCtaVisible ? <ResultStickyCTA /> : null}
     </main>
   );
 };

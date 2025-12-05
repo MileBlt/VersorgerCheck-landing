@@ -535,6 +535,7 @@ const ErgebnisChat431 = () => {
         <DialogContent
           id="offers-dialog"
           className="max-w-xl p-0 overflow-hidden border border-border/70 rounded-t-3xl rounded-b-xl
+                     sm:rounded-b-xl rounded-b-none h-[100vh] sm:h-auto max-h-[100vh]
                      data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-bottom-10
                      data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-bottom-10
                      duration-700 ease-out"
@@ -577,7 +578,7 @@ const ErgebnisChat431 = () => {
                             <h3 className="text-base md:text-lg font-semibold text-brand-text leading-tight">{offer.title}</h3>
                           </div>
                           <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
-                            <div className="text-base md:text-lg font-heading font-bold text-brand-text leading-tight">
+                            <div className="text-lg md:text-xl font-heading font-bold text-brand-text leading-tight">
                               {offer.price}
                             </div>
                             {offer.priceNote ? (
@@ -650,7 +651,9 @@ const ErgebnisChat431 = () => {
                       <p className="text-sm text-brand-text/80 leading-relaxed">{detailOffer.desc}</p>
                     </div>
                     <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
-                      <div className="text-lg font-heading font-bold text-brand-text leading-tight">{detailOffer.price}</div>
+                      <div className="text-lg md:text-xl font-heading font-bold text-brand-text leading-tight">
+                        {detailOffer.price}
+                      </div>
                       {detailOffer.priceNote ? (
                         <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{detailOffer.priceNote}</div>
                       ) : null}

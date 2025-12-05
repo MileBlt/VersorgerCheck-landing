@@ -579,7 +579,7 @@ const ErgebnisChat421 = () => {
                             <h3 className="text-base md:text-lg font-semibold text-brand-text leading-tight">{offer.title}</h3>
                           </div>
                           <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
-                            <div className="text-base md:text-lg font-heading font-bold text-brand-text leading-tight">
+                            <div className="text-lg md:text-xl font-heading font-bold text-brand-text leading-tight">
                               {offer.price}
                             </div>
                             {offer.priceNote ? (
@@ -639,7 +639,9 @@ const ErgebnisChat421 = () => {
                       <p className="text-sm text-brand-text/80 leading-relaxed">{detailOffer.desc}</p>
                     </div>
                     <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
-                      <div className="text-lg font-heading font-bold text-brand-text leading-tight">{detailOffer.price}</div>
+                      <div className="text-lg md:text-xl font-heading font-bold text-brand-text leading-tight">
+                        {detailOffer.price}
+                      </div>
                       {detailOffer.priceNote ? (
                         <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{detailOffer.priceNote}</div>
                       ) : null}

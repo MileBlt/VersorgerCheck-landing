@@ -79,9 +79,11 @@ const ErgebnisChat4 = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [isCtaVisible, setIsCtaVisible] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const ctaRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -93,6 +95,20 @@ const ErgebnisChat4 = () => {
         clearTimeout(replyTimeout.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const target = ctaRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsCtaVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
 
   const addUserMessage = (text: string) => {
@@ -367,6 +383,7 @@ const ErgebnisChat4 = () => {
                   size="lg"
                   className="w-full sm:w-auto"
                   id="ergebnis-cta"
+                  ref={ctaRef}
                   data-testid="ergebnischat4-footer-cta"
                 >
                   <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
@@ -396,7 +413,7 @@ const ErgebnisChat4 = () => {
       </section>
 
       <Footer />
-      <ResultStickyCTA />
+      {!isCtaVisible ? <ResultStickyCTA /> : null}
 
       <input
         ref={fileInputRef}
