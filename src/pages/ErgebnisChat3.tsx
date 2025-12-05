@@ -184,9 +184,9 @@ const ErgebnisChat3 = () => {
 
                                 {message.actions && message.actions.length > 0 ? (
                                   <div className="mt-3 flex flex-wrap gap-2">
-                                    {message.actions.map((action, index) => (
+                                    {message.actions.map((action) => (
                                       <Button
-                                        key={`${action.label}-${action.to}-${index}`}
+                                        key={action.label}
                                         asChild
                                         size="sm"
                                         variant="secondary"

@@ -194,9 +194,9 @@ const ErgebnisChat1 = () => {
 
                                 {message.actions && message.actions.length > 0 ? (
                                   <div className="mt-3 flex flex-wrap gap-2">
-                                    {message.actions.map((action, index) => (
+                                    {message.actions.map((action) => (
                                       <Button
-                                        key={`${action.label}-${action.to}-${index}`}
+                                        key={action.label}
                                         asChild
                                         size="sm"
                                         variant="secondary"
@@ -293,7 +293,7 @@ const ErgebnisChat1 = () => {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-1">
                 <div className="text-sm text-brand-text/75">{footerNote}</div>
                 <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
-                  <Link to="/beauftragen">Jetzt Stromrechnung prüfen</Link>
+                  <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
                 </Button>
               </div>
             </Card>

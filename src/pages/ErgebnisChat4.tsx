@@ -47,6 +47,15 @@ const ErgebnisChat4 = () => {
       content: "Ja, Rechnung liegt vor",
     },
     {
+      id: "bot-greeting-followup",
+      sender: "bot",
+      content: "Ok sehr gut. Möchten Sie ein Foto hochladen oder sollen wir die Fragen hier im Chat durchgehen?",
+      actions: [
+        { label: "Foto hochladen", replyText: "Foto hochladen" },
+        { label: "Im Chat fortfahren", replyText: "Im Chat fortfahren" },
+      ],
+    },
+    {
       id: "bot-closing",
       sender: "bot",
       title: "Abschluss eines Chatdialogs",
@@ -119,15 +128,21 @@ const ErgebnisChat4 = () => {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20">
+    <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20" data-testid="ergebnischat4-page">
       <Navbar />
 
       <section className="flex-1">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
-            <Card className="bg-transparent shadow-none border-none p-0 space-y-5">
+            <Card
+              className="bg-transparent shadow-none border-none p-0 space-y-5"
+              data-testid="ergebnischat4-chat-shell"
+            >
               <section className="space-y-4">
-                <Card className="border border-border/60 bg-white rounded-2xl p-4 md:p-5 shadow-sm flex flex-col gap-4">
+                <Card
+                  className="border border-border/60 bg-white rounded-2xl p-4 md:p-5 shadow-sm flex flex-col gap-4"
+                  data-testid="ergebnischat4-chat-card"
+                >
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-full bg-[#e8f4ff] border border-[#83d2de80] flex items-center justify-center">
@@ -139,7 +154,7 @@ const ErgebnisChat4 = () => {
                     </div>
                   </div>
 
-                  <ScrollArea className="h-[320px] pr-2">
+                  <ScrollArea className="h-[320px] pr-2" data-testid="ergebnischat4-scroll">
                     <div className="space-y-3">
                       {messages.map((message) => (
                         <div
@@ -166,7 +181,7 @@ const ErgebnisChat4 = () => {
                             }`;
 
                             return (
-                              <div className={bubbleClasses}>
+                              <div className={bubbleClasses} data-testid={`ergebnischat4-message-${message.id}`}>
                                 {message.title ? (
                                   isSummaryTitle ? (
                                     <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#e6f7f1] text-[#41c8a2] text-[11px] font-semibold tracking-[0.08em] mb-3 border border-[#c6f0df]">
@@ -182,7 +197,7 @@ const ErgebnisChat4 = () => {
                                 {message.listItems ? (
                                   <ul className="list-disc pl-4 space-y-1 text-[15px] text-[#25252fcc]">
                                     {message.listItems.map((item, index) => (
-                                      <li key={index} className="leading-relaxed">
+                                      <li key={index} className="leading-relaxed" data-testid="ergebnischat4-list-item">
                                         {item}
                                       </li>
                                     ))}
@@ -195,17 +210,16 @@ const ErgebnisChat4 = () => {
 
                                 {message.actions && message.actions.length > 0 ? (
                                   <div className="mt-3 flex flex-wrap gap-2">
-                                    {message.actions.map((action, index) => {
-                                      const key = `${action.label}-${action.to ?? "reply"}-${index}`;
-
+                                    {message.actions.map((action) => {
                                       if (action.to) {
                                         return (
                                           <Button
-                                            key={key}
+                                            key={action.label}
                                             asChild
                                             size="sm"
                                             variant="secondary"
                                             className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
+                                            data-testid={`ergebnischat4-action-${action.label}`}
                                           >
                                             <Link to={action.to} className="flex items-center gap-2">
                                               {action.label}
@@ -217,11 +231,12 @@ const ErgebnisChat4 = () => {
 
                                       return (
                                         <Button
-                                          key={key}
+                                          key={action.label}
                                           type="button"
                                           size="sm"
                                           variant="secondary"
                                           className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
+                                          data-testid={`ergebnischat4-action-${action.label}`}
                                           onClick={() => addUserMessage(action.replyText || action.label)}
                                         >
                                           <span className="flex items-center gap-2">
@@ -256,6 +271,7 @@ const ErgebnisChat4 = () => {
                         placeholder="Eine Frage stellen"
                         className="flex-1 h-11 bg-white border border-transparent rounded-[14px] text-[15px] placeholder:text-[#25252f99] shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
                         aria-label="Nachricht an den KI-Assistenten"
+                        data-testid="ergebnischat4-input"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -264,6 +280,7 @@ const ErgebnisChat4 = () => {
                         variant="ghost"
                         size="icon"
                         className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1]"
+                        data-testid="ergebnischat4-upload"
                       >
                         <Upload className="h-5 w-5" />
                       </Button>
@@ -273,6 +290,7 @@ const ErgebnisChat4 = () => {
                         size="icon"
                         className="h-11 w-11 rounded-full text-[#25252f] hover:bg-[#f1f1f1] md:hidden"
                         aria-label="Kamera öffnen"
+                        data-testid="ergebnischat4-camera"
                       >
                         <Camera className="h-5 w-5" />
                       </Button>
@@ -287,6 +305,7 @@ const ErgebnisChat4 = () => {
                           addUserMessage(inputValue);
                         }}
                         aria-label="Nachricht senden"
+                        data-testid="ergebnischat4-send"
                       >
                         <ArrowUp className="h-4 w-4" />
                       </Button>
@@ -296,10 +315,19 @@ const ErgebnisChat4 = () => {
               </section>
             </Card>
 
-            <Card className="bg-card shadow-[0_10px_28px_-18px_rgba(3,68,119,0.28)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-4">
+            <Card
+              className="bg-card shadow-[0_10px_28px_-18px_rgba(3,68,119,0.28)] border border-border/60 rounded-2xl p-5 md:p-7 space-y-4"
+              data-testid="ergebnischat4-footer-card"
+            >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div className="text-base text-brand-text/85">{footerNote}</div>
-                <Button asChild size="lg" className="w-full sm:w-auto" id="ergebnis-cta">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  id="ergebnis-cta"
+                  data-testid="ergebnischat4-footer-cta"
+                >
                   <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
                 </Button>
               </div>
