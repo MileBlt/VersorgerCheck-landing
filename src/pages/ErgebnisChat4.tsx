@@ -20,7 +20,7 @@ type ChatMessage = {
   imageSrc?: string;
 };
 
-const ErgebnisChat4mitChat = () => {
+const ErgebnisChat4 = () => {
   const summaryText =
     "Erfolg. Sie haben Anspruch auf eine Rückzahlung.\nSeit dem 1.7.2022 beträgt die EEG-Umlage 0 ct/kWh und wurde abgeschafft. Wird sie auf Ihrer Rechnung ab Juli 2022 trotzdem noch berechnet, ist das unzulässig und der zu viel gezahlte Betrag kann zurückverlangt werden.";
 
@@ -410,4 +410,4 @@ const ErgebnisChat4mitChat = () => {
   );
 };
 
-export default ErgebnisChat4mitChat;
+export default ErgebnisChat4;
