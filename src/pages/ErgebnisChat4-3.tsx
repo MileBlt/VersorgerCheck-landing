@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type ChatMessage = {
@@ -35,7 +35,7 @@ type ChatMessage = {
   imageSrc?: string;
 };
 
-const ErgebnisChat41 = () => {
+const ErgebnisChat43 = () => {
   const summaryText =
     "Erfolg. Sie haben Anspruch auf eine Rückzahlung.\nSeit dem 1.7.2022 beträgt die EEG-Umlage 0 ct/kWh und wurde abgeschafft. Wird sie auf Ihrer Rechnung ab Juli 2022 trotzdem noch berechnet, ist das unzulässig und der zu viel gezahlte Betrag kann zurückverlangt werden.";
 
@@ -543,9 +543,7 @@ const ErgebnisChat41 = () => {
             <>
               <DialogHeader className="px-4 pt-4 pb-2 border-b border-border/70">
                 <DialogTitle className="text-lg font-semibold text-brand-text">Angebot auswählen</DialogTitle>
-                <DialogDescription className="text-sm text-brand-text/70">
-                  Wählen Sie, wie wir weiter für Sie vorgehen sollen.
-                </DialogDescription>
+                <p className="text-sm text-brand-text/70">Wählen Sie, wie wir weiter für Sie vorgehen sollen.</p>
               </DialogHeader>
 
               <div className="max-h-[70vh] overflow-y-auto px-4 pt-3 pb-4">
@@ -630,10 +628,7 @@ const ErgebnisChat41 = () => {
                 <Button variant="ghost" size="icon" className="h-10 w-10" onClick={backToList} id="offer-detail-back">
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
-                <DialogHeader className="flex-1 items-center">
-                  <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
-                  <DialogDescription className="sr-only">Details zu {detailOffer.title}</DialogDescription>
-                </DialogHeader>
+                <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
                 <div className="w-10" />
               </div>
 
@@ -682,7 +677,7 @@ const ErgebnisChat41 = () => {
                   }}
                 >
                   {detailOffer.ctaIcon}
-                  <span className="ml-2">Details schließen</span>
+                  <span className="ml-2">Auswählen</span>
                 </Button>
               </div>
             </>
@@ -693,4 +688,4 @@ const ErgebnisChat41 = () => {
   );
 };
 
-export default ErgebnisChat41;
+export default ErgebnisChat43;

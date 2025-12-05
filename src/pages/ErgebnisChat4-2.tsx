@@ -160,9 +160,11 @@ const ErgebnisChat42 = () => {
   const [isOfferDialogOpen, setIsOfferDialogOpen] = useState(false);
   const [selectedOfferId, setSelectedOfferId] = useState<string>("service");
   const [detailOfferId, setDetailOfferId] = useState<string | null>(null);
+  const [isCtaVisible, setIsCtaVisible] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const ctaRef = useRef<HTMLButtonElement | null>(null);
   const selectedOffer = useMemo(() => offers.find((offer) => offer.id === selectedOfferId), [offers, selectedOfferId]);
   const detailOffer = useMemo(() => offers.find((offer) => offer.id === detailOfferId), [offers, detailOfferId]);
 
@@ -176,6 +178,20 @@ const ErgebnisChat42 = () => {
         clearTimeout(replyTimeout.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const target = ctaRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsCtaVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
 
   const addUserMessage = (text: string) => {
@@ -473,6 +489,7 @@ const ErgebnisChat42 = () => {
                   size="lg"
                   className="w-full sm:w-auto"
                   id="ergebnis-cta"
+                  ref={ctaRef}
                   data-testid="ergebnischat4-footer-cta"
                 >
                   <Link to="/beauftragen">Jetzt Geld zurückfordern</Link>
@@ -503,7 +520,7 @@ const ErgebnisChat42 = () => {
       </section>
 
       <Footer />
-      <ResultStickyCTA />
+      {!isCtaVisible ? <ResultStickyCTA /> : null}
 
       <input
         ref={fileInputRef}
