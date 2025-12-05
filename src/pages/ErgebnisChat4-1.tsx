@@ -55,7 +55,7 @@ const ErgebnisChat41 = () => {
       priceNote: "",
       bgTone: "bg-gradient-to-br from-[#e8f7ff] via-white to-white",
       detailBgTone: "bg-gradient-to-br from-[#e8f7ff] via-white to-[#f6fbff]",
-      borderTone: "border-[#83d2de80]",
+      borderTone: "border-[#83d2deb3]",
       features: [
         "Individuelles Antwortschreiben mit Ihren Rechnungsdaten.",
         "Als PDF herunterladen oder direkt digital verschicken.",
@@ -75,7 +75,7 @@ const ErgebnisChat41 = () => {
       priceNote: "einmalig",
       bgTone: "bg-gradient-to-br from-[#e9fbf4] via-white to-white",
       detailBgTone: "bg-gradient-to-br from-[#e9fbf4] via-white to-[#f3fdf8]",
-      borderTone: "border-[#41c8a24f]",
+      borderTone: "border-[#41c8a273]",
       features: [
         "Wir erstellen und versenden das Schreiben für Sie – ohne Aufwand für Sie.",
         "Status-Updates, falls der Anbieter nachhakt oder nicht reagiert.",
@@ -95,7 +95,7 @@ const ErgebnisChat41 = () => {
       priceNote: "einmalig",
       bgTone: "bg-gradient-to-br from-[#fff5eb] via-white to-white",
       detailBgTone: "bg-gradient-to-br from-[#fff5eb] via-white to-[#fffaf3]",
-      borderTone: "border-[#fe8f0b3d]",
+      borderTone: "border-[#fe8f0b59]",
       features: [
         "Einschätzung durch eine:n spezialisierte:n Rechtsanwält:in zu Ihrem Fall.",
         "Prüfung von Erfolgsaussichten und nächsten Schritten bei Gegenwehr des Anbieters.",
@@ -520,7 +520,7 @@ const ErgebnisChat41 = () => {
           className="max-w-xl p-0 overflow-hidden border border-border/70 rounded-t-3xl rounded-b-xl
                      data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-bottom-10
                      data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-bottom-10
-                     duration-400 ease-out"
+                     duration-700 ease-out"
         >
           {!detailOffer ? (
             <>
@@ -538,14 +538,19 @@ const ErgebnisChat41 = () => {
                   onValueChange={(value) => setSelectedOfferId(value)}
                 >
                   {offers.map((offer) => (
-                    <label
+                    <button
                       key={offer.id}
-                      className={`group relative flex gap-3 rounded-2xl border ${offer.borderTone} ${offer.bgTone} px-4 py-4 shadow-sm hover:border-brand-blue/50 hover:shadow-md transition`}
+                      className={`group relative flex w-full text-left gap-3 rounded-2xl border ${offer.borderTone} ${offer.bgTone} px-4 py-4 shadow-sm hover:border-brand-blue/50 hover:shadow-md transition`}
                       id={`offer-card-${offer.id}`}
+                      onClick={() => {
+                        setSelectedOfferId(offer.id);
+                        setIsOfferDialogOpen(false);
+                        window.location.href = "/beauftragen";
+                      }}
                     >
                       <RadioGroupItem
                         value={offer.id}
-                        className="mt-1 text-brand-blue border-brand-blue data-[state=checked]:bg-brand-blue"
+                        className="mt-1 text-brand-blue border-brand-blue data-[state=checked]:bg-brand-blue pointer-events-none"
                         id={`offer-radio-${offer.id}`}
                       />
                       <div className="flex-1 space-y-2">
@@ -585,14 +590,17 @@ const ErgebnisChat41 = () => {
                             variant="outline"
                             size="sm"
                             className="border-brand-blue/60 text-brand-blue hover:bg-brand-blue/5"
-                            onClick={() => goToDetail(offer.id)}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              goToDetail(offer.id);
+                            }}
                           >
                             <Info className="w-4 h-4 mr-2" />
                             Weitere Informationen
                           </Button>
                         </div>
                       </div>
-                    </label>
+                    </button>
                   ))}
                 </RadioGroup>
               </div>
