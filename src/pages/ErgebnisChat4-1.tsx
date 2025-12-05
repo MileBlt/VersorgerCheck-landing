@@ -497,15 +497,6 @@ const ErgebnisChat41 = () => {
               </div>
             </Card>
 
-            <div className="flex justify-center">
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-[#034477] text-white hover:bg-[#023a66] shadow-lg"
-                onClick={openOffers}
-              >
-                Angebote ansehen
-              </Button>
-            </div>
           </div>
         </div>
       </section>
