@@ -256,6 +256,7 @@ const ErgebnisChat42 = () => {
                       </div>
                     </div>
                     <Button
+                      id="offers-button-header"
                       type="button"
                       variant="secondary"
                       size="sm"
@@ -514,7 +515,13 @@ const ErgebnisChat42 = () => {
       />
 
       <Dialog open={isOfferDialogOpen} onOpenChange={setIsOfferDialogOpen}>
-        <DialogContent className="max-w-xl p-0 overflow-hidden border border-border/70 rounded-t-3xl rounded-b-xl">
+        <DialogContent
+          id="offers-dialog"
+          className="max-w-xl p-0 overflow-hidden border border-border/70 rounded-t-3xl rounded-b-xl
+                     data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-bottom-10
+                     data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-bottom-10
+                     duration-400 ease-out"
+        >
           {!detailOffer ? (
             <>
               <DialogHeader className="px-4 pt-4 pb-2 border-b border-border/70">
@@ -523,18 +530,24 @@ const ErgebnisChat42 = () => {
               </DialogHeader>
 
               <div className="max-h-[70vh] overflow-y-auto px-4 pt-3 pb-4">
-                <RadioGroup value={selectedOfferId} onValueChange={(value) => setSelectedOfferId(value)}>
+                <RadioGroup
+                  id="offers-radio-group"
+                  value={selectedOfferId}
+                  onValueChange={(value) => setSelectedOfferId(value)}
+                >
                   {offers.map((offer) => (
                     <label
                       key={offer.id}
                       className={`group relative flex gap-3 rounded-2xl border ${offer.borderTone} ${offer.bgTone} px-4 py-4 shadow-sm hover:border-brand-blue/50 hover:shadow-md transition`}
+                      id={`offer-card-${offer.id}`}
                     >
                       <RadioGroupItem
                         value={offer.id}
                         className="mt-1 text-brand-blue border-brand-blue data-[state=checked]:bg-brand-blue"
+                        id={`offer-radio-${offer.id}`}
                       />
                       <div className="flex-1 space-y-2">
-                        <div className="flex flex-wrap items-start justify-between gap-2">
+                        <div className="flex flex-wrap items-start gap-3 md:gap-4">
                           <div className="space-y-1">
                             <span
                               className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] border border-current/25 ${offer.badgeTone}`}
@@ -543,11 +556,15 @@ const ErgebnisChat42 = () => {
                             </span>
                             <h3 className="text-base md:text-lg font-semibold text-brand-text leading-tight">{offer.title}</h3>
                           </div>
-                          <div className="text-right">
-                            <div className="text-base md:text-lg font-heading font-bold text-brand-text">{offer.price}</div>
+                          <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
+                            <div className="text-base md:text-lg font-heading font-bold text-brand-text leading-tight">
+                              {offer.price}
+                            </div>
                             {offer.priceNote ? (
                               <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{offer.priceNote}</div>
-                            ) : null}
+                            ) : (
+                              <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
+                            )}
                           </div>
                         </div>
                         <p className="text-sm text-brand-text/80 leading-relaxed">{offer.desc}</p>
@@ -561,6 +578,7 @@ const ErgebnisChat42 = () => {
                         </ul>
                         <div className="flex flex-wrap gap-2">
                           <Button
+                            id={`offer-info-${offer.id}`}
                             type="button"
                             variant="outline"
                             size="sm"
@@ -570,15 +588,6 @@ const ErgebnisChat42 = () => {
                             <Info className="w-4 h-4 mr-2" />
                             Weitere Informationen
                           </Button>
-                          <Button
-                            type="button"
-                            variant="secondary"
-                            size="sm"
-                            className="bg-[#034477] text-white hover:bg-[#023a66] border border-[#023a66]"
-                            onClick={() => setSelectedOfferId(offer.id)}
-                          >
-                            Auswählen
-                          </Button>
                         </div>
                       </div>
                     </label>
@@ -586,20 +595,12 @@ const ErgebnisChat42 = () => {
                 </RadioGroup>
               </div>
 
-              <div className="border-t border-border/70 bg-[#f8fafc] px-4 py-3">
-                <Button
-                  className="w-full bg-[#034477] text-white hover:bg-[#023a66]"
-                  disabled={!selectedOffer}
-                  onClick={() => setIsOfferDialogOpen(false)}
-                >
-                  Fortfahren
-                </Button>
-              </div>
+              <div className="border-t border-border/70 bg-[#f8fafc] px-4 py-3" />
             </>
           ) : (
             <>
               <div className="flex items-center justify-between px-4 pt-4 pb-2 border-b border-border/70">
-                <Button variant="ghost" size="icon" className="h-10 w-10" onClick={backToList}>
+                <Button variant="ghost" size="icon" className="h-10 w-10" onClick={backToList} id="offer-detail-back">
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
                 <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
@@ -620,11 +621,13 @@ const ErgebnisChat42 = () => {
                       <h3 className="text-xl font-semibold text-brand-text">{detailOffer.title}</h3>
                       <p className="text-sm text-brand-text/80 leading-relaxed">{detailOffer.desc}</p>
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-heading font-bold text-brand-text">{detailOffer.price}</div>
+                    <div className="text-left min-w-[96px] flex flex-col items-start gap-0.5 pt-0.5">
+                      <div className="text-lg font-heading font-bold text-brand-text leading-tight">{detailOffer.price}</div>
                       {detailOffer.priceNote ? (
                         <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{detailOffer.priceNote}</div>
-                      ) : null}
+                      ) : (
+                        <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -641,6 +644,7 @@ const ErgebnisChat42 = () => {
 
               <div className="border-t border-border/70 bg-[#f8fafc] px-4 py-3 space-y-2">
                 <Button
+                  id="offer-detail-close"
                   className="w-full bg-[#034477] text-white hover:bg-[#023a66]"
                   onClick={() => {
                     setSelectedOfferId(detailOffer.id);
