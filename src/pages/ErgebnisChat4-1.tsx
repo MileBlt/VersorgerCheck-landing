@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type ChatMessage = {
@@ -519,7 +519,9 @@ const ErgebnisChat41 = () => {
             <>
               <DialogHeader className="px-4 pt-4 pb-2 border-b border-border/70">
                 <DialogTitle className="text-lg font-semibold text-brand-text">Angebot auswählen</DialogTitle>
-                <p className="text-sm text-brand-text/70">Wählen Sie, wie wir weiter für Sie vorgehen sollen.</p>
+                <DialogDescription className="text-sm text-brand-text/70">
+                  Wählen Sie, wie wir weiter für Sie vorgehen sollen.
+                </DialogDescription>
               </DialogHeader>
 
               <div className="max-h-[70vh] overflow-y-auto px-4 pt-3 pb-4">
@@ -570,15 +572,6 @@ const ErgebnisChat41 = () => {
                             <Info className="w-4 h-4 mr-2" />
                             Weitere Informationen
                           </Button>
-                          <Button
-                            type="button"
-                            variant="secondary"
-                            size="sm"
-                            className="bg-[#034477] text-white hover:bg-[#023a66] border border-[#023a66]"
-                            onClick={() => setSelectedOfferId(offer.id)}
-                          >
-                            Auswählen
-                          </Button>
                         </div>
                       </div>
                     </label>
@@ -602,7 +595,10 @@ const ErgebnisChat41 = () => {
                 <Button variant="ghost" size="icon" className="h-10 w-10" onClick={backToList}>
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
-                <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
+                <DialogHeader className="flex-1 items-center">
+                  <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
+                  <DialogDescription className="sr-only">Details zu {detailOffer.title}</DialogDescription>
+                </DialogHeader>
                 <div className="w-10" />
               </div>
 
@@ -648,7 +644,7 @@ const ErgebnisChat41 = () => {
                   }}
                 >
                   {detailOffer.ctaIcon}
-                  <span className="ml-2">Auswählen</span>
+                  <span className="ml-2">Details schließen</span>
                 </Button>
               </div>
             </>
