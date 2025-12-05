@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type ChatMessage = {
@@ -35,7 +35,7 @@ type ChatMessage = {
   imageSrc?: string;
 };
 
-const ErgebnisChat43 = () => {
+const ErgebnisChat411 = () => {
   const summaryText =
     "Erfolg. Sie haben Anspruch auf eine Rückzahlung.\nSeit dem 1.7.2022 beträgt die EEG-Umlage 0 ct/kWh und wurde abgeschafft. Wird sie auf Ihrer Rechnung ab Juli 2022 trotzdem noch berechnet, ist das unzulässig und der zu viel gezahlte Betrag kann zurückverlangt werden.";
 
@@ -158,7 +158,7 @@ const ErgebnisChat43 = () => {
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
   const [isOfferDialogOpen, setIsOfferDialogOpen] = useState(false);
-  const [selectedOfferId, setSelectedOfferId] = useState<string>("");
+  const [selectedOfferId, setSelectedOfferId] = useState<string>("service");
   const [detailOfferId, setDetailOfferId] = useState<string | null>(null);
   const [isCtaVisible, setIsCtaVisible] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -543,7 +543,9 @@ const ErgebnisChat43 = () => {
             <>
               <DialogHeader className="px-4 pt-4 pb-2 border-b border-border/70">
                 <DialogTitle className="text-lg font-semibold text-brand-text">Angebot auswählen</DialogTitle>
-                <p className="text-sm text-brand-text/70">Wählen Sie, wie wir weiter für Sie vorgehen sollen.</p>
+                <DialogDescription className="text-sm text-brand-text/70">
+                  Wählen Sie, wie wir weiter für Sie vorgehen sollen.
+                </DialogDescription>
               </DialogHeader>
 
               <div className="max-h-[70vh] overflow-y-auto px-4 pt-3 pb-4">
@@ -559,6 +561,8 @@ const ErgebnisChat43 = () => {
                       id={`offer-card-${offer.id}`}
                       onClick={() => {
                         setSelectedOfferId(offer.id);
+                        setIsOfferDialogOpen(false);
+                        window.location.href = "/beauftragen";
                       }}
                     >
                       <RadioGroupItem
@@ -582,20 +586,12 @@ const ErgebnisChat43 = () => {
                             </div>
                             {offer.priceNote ? (
                               <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{offer.priceNote}</div>
-                            ) : (
-                              <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
-                            )}
+                            ) : null}
                           </div>
                         </div>
-                        <p className="text-sm text-brand-text/80 leading-relaxed">{offer.desc}</p>
-                        <ul className="space-y-2 text-sm text-brand-text/85 leading-relaxed">
-                          {offer.features.slice(0, 2).map((item) => (
-                            <li key={item} className="flex gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <p className="text-sm text-brand-text/80 leading-relaxed">
+                          {`${offer.desc.split(". ")[0].replace(/\.*$/, "")}.`}
+                        </p>
                         <div className="flex flex-wrap gap-2">
                           <Button
                             id={`offer-info-${offer.id}`}
@@ -609,7 +605,7 @@ const ErgebnisChat43 = () => {
                             }}
                           >
                             <Info className="w-4 h-4 mr-2" />
-                            Weitere Informationen
+                            Mehr erfahren
                           </Button>
                         </div>
                       </div>
@@ -618,20 +614,7 @@ const ErgebnisChat43 = () => {
                 </RadioGroup>
               </div>
 
-              <div className="border-t border-border/70 bg-[#f8fafc] px-4 py-3">
-                {selectedOfferId ? (
-                  <Button
-                    id="offers-continue"
-                    className="w-full bg-[#034477] text-white hover:bg-[#023a66]"
-                    onClick={() => {
-                      setIsOfferDialogOpen(false);
-                      window.location.href = "/beauftragen";
-                    }}
-                  >
-                    Jetzt fortfahren
-                  </Button>
-                ) : null}
-              </div>
+              <div className="border-t border-border/70 bg-[#f8fafc] px-4 py-3" />
             </>
           ) : (
             <>
@@ -639,7 +622,10 @@ const ErgebnisChat43 = () => {
                 <Button variant="ghost" size="icon" className="h-10 w-10" onClick={backToList} id="offer-detail-back">
                   <ArrowLeft className="w-5 h-5" />
                 </Button>
-                <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
+                <DialogHeader className="flex-1 items-center">
+                  <DialogTitle className="text-lg font-semibold text-brand-text text-center flex-1">{detailOffer.title}</DialogTitle>
+                  <DialogDescription className="sr-only">Details zu {detailOffer.title}</DialogDescription>
+                </DialogHeader>
                 <div className="w-10" />
               </div>
 
@@ -661,9 +647,7 @@ const ErgebnisChat43 = () => {
                       <div className="text-lg font-heading font-bold text-brand-text leading-tight">{detailOffer.price}</div>
                       {detailOffer.priceNote ? (
                         <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{detailOffer.priceNote}</div>
-                      ) : (
-                        <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -688,7 +672,7 @@ const ErgebnisChat43 = () => {
                   }}
                 >
                   {detailOffer.ctaIcon}
-                  <span className="ml-2">Auswählen</span>
+                  <span className="ml-2">Details schließen</span>
                 </Button>
               </div>
             </>
@@ -699,4 +683,4 @@ const ErgebnisChat43 = () => {
   );
 };
 
-export default ErgebnisChat43;
+export default ErgebnisChat411;

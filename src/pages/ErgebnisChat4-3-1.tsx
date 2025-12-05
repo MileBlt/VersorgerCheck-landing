@@ -35,7 +35,7 @@ type ChatMessage = {
   imageSrc?: string;
 };
 
-const ErgebnisChat43 = () => {
+const ErgebnisChat431 = () => {
   const summaryText =
     "Erfolg. Sie haben Anspruch auf eine Rückzahlung.\nSeit dem 1.7.2022 beträgt die EEG-Umlage 0 ct/kWh und wurde abgeschafft. Wird sie auf Ihrer Rechnung ab Juli 2022 trotzdem noch berechnet, ist das unzulässig und der zu viel gezahlte Betrag kann zurückverlangt werden.";
 
@@ -582,20 +582,12 @@ const ErgebnisChat43 = () => {
                             </div>
                             {offer.priceNote ? (
                               <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{offer.priceNote}</div>
-                            ) : (
-                              <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
-                            )}
+                            ) : null}
                           </div>
                         </div>
-                        <p className="text-sm text-brand-text/80 leading-relaxed">{offer.desc}</p>
-                        <ul className="space-y-2 text-sm text-brand-text/85 leading-relaxed">
-                          {offer.features.slice(0, 2).map((item) => (
-                            <li key={item} className="flex gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <p className="text-sm text-brand-text/80 leading-relaxed">
+                          {`${offer.desc.split(". ")[0].replace(/\.*$/, "")}.`}
+                        </p>
                         <div className="flex flex-wrap gap-2">
                           <Button
                             id={`offer-info-${offer.id}`}
@@ -609,7 +601,7 @@ const ErgebnisChat43 = () => {
                             }}
                           >
                             <Info className="w-4 h-4 mr-2" />
-                            Weitere Informationen
+                            Mehr erfahren
                           </Button>
                         </div>
                       </div>
@@ -661,9 +653,7 @@ const ErgebnisChat43 = () => {
                       <div className="text-lg font-heading font-bold text-brand-text leading-tight">{detailOffer.price}</div>
                       {detailOffer.priceNote ? (
                         <div className="text-[11px] uppercase text-brand-text/60 tracking-[0.06em]">{detailOffer.priceNote}</div>
-                      ) : (
-                        <div className="text-[11px] uppercase text-transparent select-none">placeholder</div>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -699,4 +689,4 @@ const ErgebnisChat43 = () => {
   );
 };
 
-export default ErgebnisChat43;
+export default ErgebnisChat431;
