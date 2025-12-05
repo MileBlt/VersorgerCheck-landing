@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUp, ArrowRight, Upload, Loader2, Award, Camera } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TuevAndGoogle } from "@/components/TuevAndGoogle";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type ChatMessage = {
   id: string;
@@ -83,8 +84,11 @@ const ErgebnisChat4 = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [inputValue, setInputValue] = useState("");
   const [isThinking, setIsThinking] = useState(false);
+  const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
   const replyTimeout = useRef<NodeJS.Timeout | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const cameraInputRef = useRef<HTMLInputElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -127,13 +131,29 @@ const ErgebnisChat4 = () => {
     }, 450);
   };
 
-  return (
-    <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20" data-testid="ergebnischat4-page">
-      <Navbar />
+  const handleUploadSelected = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setIsUploadDialogOpen(false);
+      event.target.value = "";
+    }
+  };
 
-      <section className="flex-1">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
+  const openCameraPicker = () => {
+    cameraInputRef.current?.click();
+  };
+
+  const openFilePicker = () => {
+    fileInputRef.current?.click();
+  };
+
+  return (
+    <>
+      <main className="min-h-screen flex flex-col bg-muted pb-16 md:pb-20" data-testid="ergebnischat4-page">
+        <Navbar />
+
+        <section className="flex-1">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto pt-4 md:pt-6 lg:pt-8 pb-8 md:pb-12 lg:pb-14 space-y-6 md:space-y-8">
             <Card
               className="bg-transparent shadow-none border-none p-0 space-y-5"
               data-testid="ergebnischat4-chat-shell"
@@ -237,7 +257,13 @@ const ErgebnisChat4 = () => {
                                           variant="secondary"
                                           className="bg-[#e8f7ff] text-[#034477] hover:bg-[#dbeffc] border border-[#83d2de80] text-sm rounded-full shadow-sm px-4"
                                           data-testid={`ergebnischat4-action-${action.label}`}
-                                          onClick={() => addUserMessage(action.replyText || action.label)}
+                                          onClick={() => {
+                                            if (action.label === "Foto hochladen") {
+                                              setIsUploadDialogOpen(true);
+                                              return;
+                                            }
+                                            addUserMessage(action.replyText || action.label);
+                                          }}
                                         >
                                           <span className="flex items-center gap-2">
                                             {action.label}
@@ -354,9 +380,57 @@ const ErgebnisChat4 = () => {
         </div>
       </section>
 
-      <Footer />
-      <ResultStickyCTA />
-    </main>
+        <Footer />
+        <ResultStickyCTA />
+      </main>
+
+      <Dialog open={isUploadDialogOpen} onOpenChange={setIsUploadDialogOpen}>
+        <DialogContent className="max-w-sm" data-testid="ergebnischat4-upload-dialog">
+          <DialogHeader>
+            <DialogTitle className="text-lg font-semibold text-[#25252f]">Foto hochladen</DialogTitle>
+            <DialogDescription className="text-sm text-[#25252fcc]">
+              Wählen Sie, ob Sie die Kamera öffnen oder eine Datei auswählen möchten.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="flex flex-col gap-2">
+            <Button
+              type="button"
+              className="justify-center"
+              onClick={openCameraPicker}
+              data-testid="ergebnischat4-upload-camera"
+            >
+              Kamera öffnen
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              className="justify-center"
+              onClick={openFilePicker}
+              data-testid="ergebnischat4-upload-file"
+            >
+              Datei hochladen
+            </Button>
+          </div>
+
+          <input
+            ref={cameraInputRef}
+            type="file"
+            accept="image/*"
+            capture="environment"
+            className="hidden"
+            onChange={handleUploadSelected}
+          />
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleUploadSelected}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
